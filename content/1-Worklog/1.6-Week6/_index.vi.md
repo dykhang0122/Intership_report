@@ -1,58 +1,34 @@
 ---
 title: "Worklog Tuần 6"
-date: 2024-01-01
-weight: 1
+date: 2026-05-22
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
+**Thời gian:** 22/05/2026 – 28/05/2026
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Đóng gói ứng dụng bằng Docker; quản lý image trên Amazon ECR.
+* Triển khai container trên Lightsail Containers và Amazon EKS.
+* Chuyển Monolithic sang Microservices với Docker và AWS Fargate.
+* Xây dựng CI/CD (CodePipeline + GitHub); giám sát và bảo mật môi trường container.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - **Thực hành Docker:** Viết Dockerfile cho app mẫu; build image, chạy container local | 22/05/2026 | 22/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | - **Đẩy image lên ECR:** Push image lên Amazon ECR; tag, lifecycle policy cơ bản | 23/05/2026 | 23/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | - **Tối ưu Docker:** Hiểu layer cache và best practice giảm kích thước image | 24/05/2026 | 24/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | - **Lightsail Containers:** Deploy service từ ECR image, cấu hình port và scale <br> - **Giám sát Lightsail:** Kiểm tra health check, log và public endpoint <br> - **So sánh dịch vụ:** So sánh Lightsail vs ECS/EKS về độ phức tạp và chi phí | 25/05/2026 | 25/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Thực hành EKS:** Cluster, node group (hoặc Fargate profile), kubectl cơ bản <br> - **Deploy lên EKS:** Deploy Deployment + Service (LoadBalancer/Ingress) <br> - **Kiểm tra EKS:** Kiểm tra pod scheduling và rolling update | 26/05/2026 | 26/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - **Kiến trúc Container:** Tách Monolithic thành 2–3 microservice container <br> - **Thực hành ECS Fargate:** Task definition, service, không quản lý EC2 worker <br> - **Giao tiếp nội bộ:** Service discovery và giao tiếp nội bộ giữa các container | 27/05/2026 | 27/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - **CI/CD Container:** GitHub → CodePipeline → CodeBuild → deploy ECR/Fargate <br> - **Giám sát & Bảo mật:** Container Insights, CloudWatch log driver; giới hạn IAM task role <br> - **Bảo mật bí mật:** Scan image (ECR scan), secrets qua Secrets Manager/SSM Parameter Store | 28/05/2026 | 28/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Đóng gói ứng dụng Docker và publish image lên ECR.
+* Triển khai container trên Lightsail và EKS; hiểu vòng đời pod/service.
+* Chuyển đổi sang microservices chạy trên Fargate với service độc lập.
+* Tự động hóa build/deploy qua CodePipeline; áp dụng giám sát và hardening container.

@@ -1,59 +1,33 @@
 ---
 title: "Worklog Tuần 2"
-date: 2024-01-01
-weight: 1
+date: 2026-04-24
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
+**Thời gian:** 24/04/2026 – 30/04/2026
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu sâu Amazon VPC và mô hình mạng phân lớp trên AWS.
+* Thực hành thiết kế Subnet, Route Table, Internet Gateway, NAT Gateway và VPN Site-to-Site.
+* Cấu hình Security Group, Network ACL và kiểm tra luồng traffic giữa các lớp mạng.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - **Tìm hiểu VPC:** Tìm hiểu Amazon VPC: CIDR, Public/Private Subnet, route propagation | 24/04/2026 | 24/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | - **Mô hình mạng:** So sánh mô hình mạng hub-spoke và multi-tier trên AWS | 25/04/2026 | 25/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | - **Thiết kế mạng:** Vẽ sơ đồ kiến trúc mạng tham khảo cho lab | 26/04/2026 | 26/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | - **Thực hành VPC:** Tạo VPC mới, chia Public và Private Subnet theo AZ <br> - **Cấu hình định tuyến:** Cấu hình Route Table, gắn Internet Gateway cho Public Subnet <br> - **Kiểm tra kết nối:** Kiểm tra routing và connectivity từ EC2 public | 27/04/2026 | 27/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Thực hành NAT Gateway:** Cho phép Private Subnet ra Internet an toàn <br> - **Cấu hình NAT:** Cấu hình route `0.0.0.0/0` qua NAT cho private route table <br> - **Kiểm tra NAT:** Test outbound connection từ instance trong Private Subnet | 28/04/2026 | 28/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - **Thực hành VPN:** VPN Site-to-Site: Virtual Private Gateway, Customer Gateway, VPN connection <br> - **Thiết lập IPSec:** Thiết lập tunnel IPSec giữa mạng on-premises (mô phỏng) và VPC <br> - **Kiểm tra VPN:** Kiểm tra trạng thái tunnel và route table liên quan | 29/04/2026 | 29/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - **Bảo mật mạng:** Cấu hình Security Group (stateful) và Network ACL (stateless) <br> - **So sánh tường lửa:** So sánh quy tắc inbound/outbound, thứ tự rule NACL <br> - **Kiểm tra truy cập:** Kiểm tra và ghi nhận luồng traffic cho phép/từ chối | 30/04/2026 | 30/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Hiểu rõ kiến trúc VPC, vai trò của Subnet, Route Table, IGW và NAT Gateway.
+* Triển khai mạng phân lớp Public/Private; instance private truy cập Internet qua NAT.
+* Thiết lập VPN Site-to-Site và hiểu cách routing giữa on-premises với VPC.
+* Phân biệt và cấu hình Security Group vs Network ACL; kiểm soát traffic hiệu quả.

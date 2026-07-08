@@ -1,59 +1,32 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-06-19
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
+**Thời gian:** 19/06/2026 – 25/06/2026
 
 ### Mục tiêu tuần 10:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu Data Governance: quyền truy cập, bảo mật, chất lượng dữ liệu trên cloud.
+* Thực hành Amazon QuickSight: kết nối nguồn dữ liệu, dashboard và báo cáo phân tích hóa đơn.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - **Quản trị dữ liệu:** Data Governance: data owner, steward, classification (public/internal/confidential) | 19/06/2026 | 19/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | - **Bảo mật dữ liệu:** IAM và resource policy cho dữ liệu S3/DynamoDB; encryption at rest (SSE-S3/KMS) | 20/06/2026 | 20/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | - **Kiểm toán truy cập:** Audit: CloudTrail log truy cập API liên quan data | 21/06/2026 | 21/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | - **Chất lượng dữ liệu:** Data quality: completeness, accuracy, timeliness cho metadata hóa đơn <br> - **Quy tắc validate:** Validation rule trong Lambda trước khi ghi DynamoDB <br> - **Chính sách xóa:** Chiến lược retention và xóa dữ liệu test | 22/06/2026 | 22/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Thực hành QuickSight:** Tạo dataset từ DynamoDB hoặc S3/Athena export <br> - **Chuẩn hóa dữ liệu:** Join/filter field: vendor, amount, date, status <br> - **Phân quyền QuickSight:** Phân quyền dataset theo user/group QuickSight | 23/06/2026 | 23/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - **Xây dựng Dashboard:** Biểu đồ tổng chi tiêu theo tháng, top vendor, số hóa đơn processed <br> - **KPI & Chỉ số:** KPI card: success rate Textract, avg processing time <br> - **Tính năng nâng cao:** Drill-down và filter theo khoảng thời gian | 24/06/2026 | 24/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - **Xuất báo cáo:** Tạo báo cáo PDF/scheduled email (nếu có) cho stakeholder mẫu <br> - **Đánh giá trực quan:** Review dashboard với dữ liệu thật và dummy <br> - **Ghi chú insight:** Ghi chú insight và hạn chế hiện tại của dataset | 25/06/2026 | 25/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Nắm nguyên tắc Data Governance và áp dụng cho dữ liệu hóa đơn trên AWS.
+* Thiết lập validation và audit trail cho pipeline dữ liệu.
+* Kết nối QuickSight với nguồn DynamoDB/S3 và tạo dataset phân tích.
+* Xây dashboard trực quan hóa chi tiêu, vendor và hiệu suất xử lý hóa đơn.

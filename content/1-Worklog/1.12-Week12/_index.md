@@ -1,57 +1,32 @@
 ---
 title: "Week 12 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-03
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
+**Period:** 07/03/2026 – 07/09/2026
 
 ### Week 12 Objectives:
-
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Complete all deliverables for the final report.
+* Perform a live demo before the evaluation committee.
+* Evaluate and summarize the entire internship process.
+* Clean up AWS resources to avoid unexpected costs.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 6 | - **Report Compilation:** Compile all content from worklog, proposal, technical docs, and slides | 07/03/2026 | 07/03/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | - **Document Formatting:** Format the final report according to the FCJ template | 07/04/2026 | 07/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | - **Errors Review:** Check for typos, formatting, and broken links/images | 07/05/2026 | 07/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | - **Demo Environment:** Prepare the demo environment: start required resources, create sample data, end-to-end test 3 times <br> - **Demo Readiness:** Ensure no critical errors during live demo <br> - **Demo Checklist:** Cross-reference with previously prepared demo checklist | 07/06/2026 | 07/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Final Presentation:** Hold final presentation & live demo <br> - **Slide Presentation:** Present key content: problem, solution, tech stack, KPIs, achievements, challenges, and future work <br> - **Live Demonstration:** Demo: upload invoice → extraction → view QuickSight dashboard | 07/07/2026 | 07/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - **AWS Resources Cleanup:** Clean up AWS resources: delete S3 bucket, DynamoDB table, Lambda function, API Gateway, Cognito User Pool, CloudWatch Log Group, Bedrock endpoint (if any) <br> - **Billing Check:** Re-check Billing Console to ensure no running services generate costs <br> - **Data Backup:** Save snapshot/backup needed data before deletion | 07/08/2026 | 07/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - **Internship Summary:** Write final summary, evaluation, and conclusion <br> - **Learning Outcomes:** Reflect on the learning path and new skills gained <br> - **Program Feedback:** Provide feedback (if any) for the FCJ program | 07/09/2026 | 07/09/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 12 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully completed and submitted full final report, worklog, slides, and technical docs.
+* Live demo success with no errors and clear presentation.
+* All AWS resources cleaned up, no unexpected costs remaining.
+* Summarized entire internship and learning at FCJ, achieved all initial goals.

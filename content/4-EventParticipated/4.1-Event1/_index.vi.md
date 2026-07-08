@@ -1,125 +1,98 @@
 ---
 title: "Event 1"
-date: 2024-01-01
+date: 2026-05-23
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Bài thu hoạch "Context Is Everything: Making AI Actually Work for You"
 
 ### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+- Hiểu lý do tại sao AI phản hồi kém và cách khắc phục thông qua việc cung cấp bối cảnh (context) chất lượng cao.
+- Tìm hiểu cấu trúc 4 yếu tố cốt lõi để biến một câu lệnh mơ hồ thành một nhiệm vụ có thể giải quyết chính xác bởi AI.
+- Nhận diện các sai lầm phổ biến khi tương tác với AI và nắm bắt xu hướng phát triển từ các câu lệnh đơn lẻ dịch chuyển sang "Bộ não thứ hai" (Second AI Brain).
 
 ### Danh Sách Diễn Giả
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+- **Anh Tịnh** – Platform Engineer tại GoTymeX, AWS Community Builder. Chủ đề: Build second brain.
+- **Hải Anh** – Chủ đề: Friendly AI Assistant with Amazon Quick.
+- **Thịnh** – Chủ đề: From Edge To Origin: CloudFront as Your Foundation.
+- **Team VIB** – Chủ đề: 36 hrs with LotusHacks – Building UTMorpho from Scratch.
+- **Đào Đức** – Chủ đề: Deep dive talk: How LLM actually works?
+- **Cát Vy** – Chủ đề: Enterprise-Grade Multi-Agent System: The Case of UTMorpho.
 
 ### Nội Dung Nổi Bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### PHẦN 1: Vấn đề cốt lõi - Tại sao AI phản hồi kém?
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+Nhiều kết quả phản hồi từ AI gây thất vọng (như trả lời chung chung, sai hướng, quá dài dòng hoặc thiếu ràng buộc) không phải do mô hình AI kém thông minh, mà là do người dùng thiếu bối cảnh (context). 
+- AI không thể tự đọc suy nghĩ hay đoán ý định của bạn.
+- AI chỉ xử lý và đưa ra kết quả dựa trên chính xác những gì bạn cung cấp đầu vào.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### PHẦN 2: Cấu trúc của "Context" (Bối cảnh) chất lượng
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+Để chuyển đổi một câu lệnh mơ hồ thành một nhiệm vụ cụ thể mà AI có thể giải quyết một cách chính xác, bối cảnh cần chứa đầy đủ 4 yếu tố sau:
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+1. **Mục tiêu (Your goal):** Định hình kết quả đầu ra mong muốn một cách rõ ràng và cụ thể.
+2. **Tình huống (Your situation):** Làm rõ vị trí của bạn (người mới bắt đầu, sinh viên hay lập trình viên có kinh nghiệm), bối cảnh làm việc (dự án nhóm hay đang chạy deadline gấp).
+3. **Ràng buộc (Your constraints):** Giới hạn về công nghệ sử dụng (tech stack), phong cách code/viết, ngân sách, định dạng đầu ra mong muốn.
+4. **Bằng chứng liên quan (Relevant evidence):** Cung cấp các đoạn mã nguồn hiện tại, tài liệu liên quan, ví dụ mẫu hoặc yêu cầu kỹ thuật chi tiết.
 
-#### Domain-Driven Design (DDD)
+#### PHẦN 3: 3 Sai lầm phổ biến khi cung cấp bối cảnh cho AI
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+- **Sai lầm #1: Nhồi nhét dữ liệu ("Internet Puller" Problem)**
+  - *Thói quen xấu:* Sao chép nguyên vẹn cả bài báo, file PDF dung lượng lớn, ảnh chụp màn hình ngẫu nhiên và ghi chú lộn xộn vào chung một ô chat.
+  - *Hậu quả:* Dữ liệu rác làm AI bị "nhiễu" thông tin, giảm độ chính xác của câu trả lời và làm lãng phí số lượng token không cần thiết. Nhiều bối cảnh hơn không đồng nghĩa với bối cảnh tốt hơn.
+- **Sai lầm #2: Nói lại những điều AI đã biết**
+  - *Ví dụ dở:* Tải lên một đoạn code Node.js Express rồi ra lệnh: "Hãy viết cái này bằng Node.js và Express". Việc này làm lãng phí không gian xử lý dữ liệu hữu ích.
+  - *Cách làm tốt:* Đi thẳng vào yêu cầu nâng cấp: "Hãy refactor API này để thêm tính năng phân trang (pagination), kiểm định dữ liệu đầu vào (validation) và quản lý lỗi (error handling) rõ ràng hơn".
+- **Sai lầm #3: Ra lệnh không mục tiêu, không ràng buộc**
+  - *Ví dụ dở:* "Xây dựng cho tôi một website portfolio" (Yêu cầu quá mơ hồ sẽ dẫn tới kết quả chung chung và rập khuôn).
+  - *Cách làm tốt:* "Xây dựng một portfolio tối giản cho một lập trình viên là sinh viên. Sử dụng React + Tailwind, thiết kế ưu tiên hiển thị trên di động (mobile-first) và hỗ trợ chế độ tối (dark mode)".
 
-#### Event-Driven Architecture
+#### PHẦN 4: Giải pháp - Tập trung vào "Chất lượng" thay vì "Số lượng"
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+- Tránh gửi ảnh chụp màn hình ngẫu nhiên hoặc các tài liệu dài dòng không liên quan trực tiếp.
+- Chỉ trích dẫn các đoạn mã/văn bản quan trọng (snippets), đưa ra ràng buộc kỹ thuật rõ ràng và định nghĩa cấu trúc định dạng đầu ra mong muốn.
+- Mục tiêu không phải là cung cấp thật nhiều thông tin, mà là cung cấp những dữ liệu chuẩn xác và cô đọng nhất.
 
-#### Compute Evolution
+#### PHẦN 5: Xu hướng phát triển - Từ Câu lệnh đến "Bộ não thứ hai"
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+Sự tiến hóa trong tương tác với AI đang dịch chuyển mạnh mẽ theo mô hình:
+$$\text{Prompt (Câu lệnh đơn lẻ)} \rightarrow \text{Context (Bối cảnh kèm tài liệu)} \rightarrow \text{Memory (Trí nhớ dài hạn)}$$
 
-#### Amazon Q Developer
+Khi hệ thống AI kết hợp cả **Bối cảnh** và **Trí nhớ dài hạn**, nó sẽ trở thành **Bộ não thứ hai (Second AI Brain)** của bạn nhờ năng lực:
+- Ghi nhớ tiến trình học tập và làm việc của bạn.
+- Hiểu rõ các dự án, định hướng công việc và mục tiêu cá nhân.
+- Tự động tìm kiếm, phân tích và truy xuất đúng bối cảnh trước khi phản hồi.
+- Càng ngày càng trở nên thông minh, tối ưu hơn khi kho kiến thức cá nhân của bạn dày lên.
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+---
 
 ### Những Gì Học Được
 
 #### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+- **Tập trung vào chất lượng ngữ cảnh:** Học được tư duy chắt lọc thông tin đầu vào. Thay vì nhồi nhét dữ liệu rác, việc định hình rõ ràng các ràng buộc và mục tiêu giúp AI hoạt động hiệu quả tối đa.
+- **Tư duy cộng tác với AI:** Chuyển đổi từ việc "ra lệnh" một chiều sang xây dựng một quy trình làm việc song hành, nơi con người đóng vai trò định hướng ngữ cảnh và AI thực thi nhiệm vụ kỹ thuật.
 
 #### Kiến Trúc Kỹ Thuật
+- **Mô hình Prompt - Context - Memory:** Hiểu rõ cách các hệ thống AI hiện đại lưu trữ và truy xuất thông tin để cá nhân hóa câu trả lời.
+- **Cách xây dựng Second AI Brain:** Nắm được cơ chế kết hợp giữa cơ sở dữ liệu tri thức (Knowledge Base) và bộ nhớ dài hạn của AI để phục vụ công việc dài hạn.
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+---
 
 ### Ứng Dụng Vào Công Việc
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+- Áp dụng cấu trúc prompt 4 yếu tố (Mục tiêu, Tình huống, Ràng buộc, Bằng chứng) vào mọi tác vụ hàng ngày khi sử dụng AI để viết code, gỡ lỗi và nghiên cứu công nghệ.
+- Tối ưu hóa các tài liệu dự án bằng cách chia nhỏ thành các đoạn snippet và tài liệu đặc tả rõ ràng trước khi cấp dữ liệu cho AI.
+- Bắt đầu xây dựng một kho tri thức cá nhân có cấu trúc (Markdown-based wiki) làm cơ sở ngữ cảnh/bộ nhớ dài hạn cho AI đồng hành trong suốt quá trình học tập và làm việc.
+
+---
 
 ### Trải nghiệm trong event
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+Tham gia buổi chia sẻ trong chuỗi sự kiện **AWS First Cloud Journey** mang lại những bài học vô cùng thiết thực về phương pháp sử dụng AI thế hệ mới:
+- **Tiếp cận thực tế:** Được học hỏi từ trải nghiệm triển khai thực tế của anh Tinh Truong (Platform Engineer tại GoTymeX), giúp rút ngắn khoảng cách giữa lý thuyết prompt engineering và thực tế công việc.
+- **Thay đổi góc nhìn:** Nhận thức rõ ràng AI là một người đồng nghiệp cần được cung cấp đầy đủ thông tin bối cảnh cụ thể để hoạt động hiệu quả nhất, thay vì là một công cụ "vạn năng" tự đoán trước mọi yêu cầu.

@@ -1,59 +1,34 @@
 ---
 title: "Worklog Tuần 4"
-date: 2024-01-01
-weight: 1
+date: 2026-05-08
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
+**Thời gian:** 08/05/2026 – 14/05/2026
 
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Kết nối VPC với Visual Studio Code, kiểm tra connectivity và triển khai ứng dụng trên EC2.
+* Sử dụng Reachability Analyzer đánh giá khả năng kết nối mạng.
+* Thiết lập EC2 Instance Connect Endpoint và SSM Session Manager thay cho SSH trực tiếp.
+* Cấu hình CloudWatch Monitoring & Alerting cho hệ thống.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 6 | - **Cấu hình môi trường:** Kết nối môi trường dev (VS Code) với tài nguyên trong VPC | 08/05/2026 | 08/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | - **Kiểm tra mạng:** Test ping/traceroute, kiểm tra Security Group và route | 09/05/2026 | 09/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | - **Thực hành EC2:** Thực hành EC2 cơ bản: deploy file, chạy service thử nghiệm | 10/05/2026 | 10/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | - **Máy chủ ứng dụng:** Biến EC2 "trống" thành application server: cài web server/runtime, deploy app mẫu <br> - **Kiểm tra luồng mạng:** Tìm hiểu VPC Reachability Analyzer: tạo path analysis giữa nguồn và đích <br> - **Khắc phục lỗi mạng:** Phân tích kết quả blocked/reachable và sửa cấu hình mạng | 11/05/2026 | 11/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | - **Kết nối bảo mật:** Thực hành EC2 Instance Connect Endpoint cho private instance <br> - **Quản trị máy chủ:** Cấu hình SSM Session Manager: IAM role, SSM Agent, không mở port 22 public <br> - **So sánh kết nối:** Truy cập shell qua Console/CLI và so sánh với SSH truyền thống | 12/05/2026 | 12/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | - **Giám sát CloudWatch:** CloudWatch: metric EC2 (CPU, network), custom metric, log group <br> - **Cảnh báo tự động:** Tạo dashboard giám sát và CloudWatch Alarm (email/SNS) <br> - **Thiết lập ngưỡng:** Thiết lập ngưỡng cảnh báo khi CPU cao hoặc status check failed | 13/05/2026 | 13/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | - **Kiểm tra hệ thống:** Kiểm tra end-to-end: app chạy ổn, Session Manager hoạt động, alarm kích hoạt đúng <br> - **Vận hành & Bảo mật:** Ghi chú runbook vận hành và checklist bảo mật tuần 4 <br> - **Tối ưu tài nguyên:** Dọn dẹp/tối ưu tài nguyên test không cần thiết | 14/05/2026 | 14/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 4:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Kết nối VPC với VS Code và triển khai ứng dụng mẫu trên EC2 thành công.
+* Sử dụng Reachability Analyzer để chẩn đoán và sửa lỗi connectivity.
+* Truy cập instance an toàn qua EC2 Instance Connect Endpoint và SSM Session Manager.
+* Thiết lập CloudWatch dashboard và alarm; giám sát hệ thống chủ động.

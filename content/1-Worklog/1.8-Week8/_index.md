@@ -1,57 +1,34 @@
 ---
 title: "Week 8 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-05
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
+**Period:** 06/05/2026 – 06/11/2026
 
 ### Week 8 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Research Amazon Bedrock and RAG (Retrieval-Augmented Generation).
+* Analyze AWS/AI documentation; propose AI Invoice Scanner final project architecture.
+* Integrate Textract + S3; Lambda combining Textract and Bedrock; store in DynamoDB.
+* Test end-to-end invoice processing pipeline.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| 6 | - **Amazon Bedrock:** Amazon Bedrock: foundation models, inference, basic prompt engineering | 06/05/2026 | 06/05/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
+| 7 | - **RAG Architecture:** RAG: embeddings, vector store, retrieve context before generation | 06/06/2026 | 06/06/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
+| CN | - **AI Documentation:** Read and summarize AWS Generative AI technical docs | 06/07/2026 | 06/07/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
+| 2 | - **Requirement Analysis:** Analyze final project requirements: upload invoice → extract → store → query <br> - **Architecture Design:** Draw high-level architecture: S3, Textract, Lambda, Bedrock, DynamoDB <br> - **Project Backlog:** List user stories and acceptance criteria | 06/08/2026 | 06/08/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
+| 3 | - **Textract Processing:** S3 put event trigger; call `DetectDocumentText` / `AnalyzeExpense` <br> - **Raw Storage:** Store raw Textract JSON in S3 prefix or pass to processing Lambda <br> - **Input Verification:** Test with sample invoice PDF/images | 06/09/2026 | 06/09/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
+| 4 | - **Lambda Logic:** Lambda: parse Textract output, normalize fields (vendor, date, amount, line items) <br> - **Bedrock Integration:** Invoke Bedrock model to enrich/classify/summarize if needed <br> - **Robustness:** Error handling, timeout, DLQ for failed messages | 06/10/2026 | 06/10/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
+| 5 | - **DynamoDB Design:** DynamoDB: design invoice table (PK invoiceId, GSI by user/date) <br> - **API Development:** Lambda writes metadata; API GET list/detail (Lambda + API Gateway) <br> - **End-to-End Test:** Integration test full pipeline: upload → extract → store → query | 06/11/2026 | 06/11/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
 
 ### Week 8 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Understood Bedrock, RAG, and application to document processing use cases.
+* Completed analysis and proposed architecture for AI Invoice Scanner project.
+* Integrated Textract with S3 trigger for automatic invoice data extraction.
+* Built Lambda pipeline with Textract, Bedrock, and DynamoDB; end-to-end test passed.
