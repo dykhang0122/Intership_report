@@ -1,1 +1,4 @@
-public/*
+public/
+hugo-temp/
+.hugo_build.lock
+resources/_gen/
