@@ -96,3 +96,10 @@ When an AI system combines both **Context** and **Long-term memory**, it becomes
 Attending this session of the **AWS First Cloud Journey** event series provided valuable, actionable lessons on modern AI interaction methods:
 - **Practical Exposure:** Learned directly from the real-world deployment experience of speaker Tinh Truong (Platform Engineer at GoTymeX), narrowing the gap between theoretical prompt engineering and professional practice.
 - **New Perspective:** Realized that AI should be treated as a collaborative partner that requires specific context to perform best, rather than an all-knowing tool that guesses what we need.
+
+---
+
+### Event Images
+
+![Event Photo 1](/images/4-EventParticipated/event1_1.jpg)
+![Event Photo 2](/images/4-EventParticipated/event1_2.jpg)

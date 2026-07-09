@@ -96,3 +96,10 @@ Khi hệ thống AI kết hợp cả **Bối cảnh** và **Trí nhớ dài hạ
 Tham gia buổi chia sẻ trong chuỗi sự kiện **AWS First Cloud Journey** mang lại những bài học vô cùng thiết thực về phương pháp sử dụng AI thế hệ mới:
 - **Tiếp cận thực tế:** Được học hỏi từ trải nghiệm triển khai thực tế của anh Tinh Truong (Platform Engineer tại GoTymeX), giúp rút ngắn khoảng cách giữa lý thuyết prompt engineering và thực tế công việc.
 - **Thay đổi góc nhìn:** Nhận thức rõ ràng AI là một người đồng nghiệp cần được cung cấp đầy đủ thông tin bối cảnh cụ thể để hoạt động hiệu quả nhất, thay vì là một công cụ "vạn năng" tự đoán trước mọi yêu cầu.
+
+---
+
+### Hình ảnh sự kiện
+
+![Ảnh sự kiện 1](/images/4-EventParticipated/event1_1.jpg)
+![Ảnh sự kiện 2](/images/4-EventParticipated/event1_2.jpg)
