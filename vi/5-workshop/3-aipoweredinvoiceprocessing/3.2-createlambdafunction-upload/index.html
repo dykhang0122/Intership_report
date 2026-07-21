@@ -1,0 +1,710 @@
+<!doctype html><html lang=vi class="js csstransforms3d"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=generator content="Hugo 0.134.3"><meta name=description content><meta name=author content="thienlh@thienlu.com"><link rel=icon href=https://dykhang0122.github.io/Intership_report/images/favicon.png type=image/png><title>Tạo Lambda Function #1 :: Báo cáo thực tập</title>
+<link href=https://dykhang0122.github.io/Intership_report/css/nucleus.css?1784617449 rel=stylesheet><link href=https://dykhang0122.github.io/Intership_report/css/fontawesome-all.min.css?1784617449 rel=stylesheet><link href=https://dykhang0122.github.io/Intership_report/css/hybrid.css?1784617449 rel=stylesheet><link href=https://dykhang0122.github.io/Intership_report/css/featherlight.min.css?1784617449 rel=stylesheet><link href=https://dykhang0122.github.io/Intership_report/css/perfect-scrollbar.min.css?1784617449 rel=stylesheet><link href=https://dykhang0122.github.io/Intership_report/css/auto-complete.css?1784617449 rel=stylesheet><link href=https://dykhang0122.github.io/Intership_report/css/atom-one-dark-reasonable.css?1784617449 rel=stylesheet><link href=https://dykhang0122.github.io/Intership_report/css/theme.css?1784617449 rel=stylesheet><link href=https://dykhang0122.github.io/Intership_report/css/hugo-theme.css?1784617449 rel=stylesheet><link href=https://dykhang0122.github.io/Intership_report/css/theme-workshop.css?1784617449 rel=stylesheet><script src=https://dykhang0122.github.io/Intership_report/js/jquery-3.3.1.min.js?1784617449></script><style>:root #header+#content>#left>#rlblock_left{display:none!important}</style></head><body data-url=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/3.2-createlambdafunction-upload/><nav id=sidebar class=showVisitedLinks><div id=header-wrapper><div id=header><a id=logo href=https://dykhang0122.github.io/Intership_report/><svg id="Layer_1" data-name="Layer 1" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff}.cls-2{fill:#fff;fill-rule:evenodd}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09 10.85a4.7 4.7.0 00.19 1.48 7.73 7.73.0 00.54 1.19.77.77.0 01.12.38.64.64.0 01-.32.49l-1 .7a.83.83.0 01-.44.15.69.69.0 01-.49-.23 3.8 3.8.0 01-.6-.77q-.25-.42-.51-1a6.14 6.14.0 01-4.89 2.3 4.54 4.54.0 01-3.32-1.19 4.27 4.27.0 01-1.22-3.2 4.28 4.28.0 011.46-3.4A6.06 6.06.0 017.69 6.46a12.47 12.47.0 011.76.13q.92.13 1.91.36V5.73a3.65 3.65.0 00-.79-2.66A3.81 3.81.0 007.86 2.3a7.71 7.71.0 00-1.79.22 12.78 12.78.0 00-1.79.57 4.55 4.55.0 01-.58.22h-.26q-.35.0-.35-.52V2a1.09 1.09.0 01.12-.58 1.2 1.2.0 01.47-.35A10.88 10.88.0 015.77.32 10.19 10.19.0 018.36.0a6 6 0 014.35 1.35 5.49 5.49.0 011.38 4.09zM7.34 13.38a5.36 5.36.0 001.72-.31A3.63 3.63.0 0010.63 12 2.62 2.62.0 0011.19 11a5.63 5.63.0 00.16-1.44v-.7a14.35 14.35.0 00-1.53-.28 12.37 12.37.0 00-1.56-.1 3.84 3.84.0 00-2.47.67A2.34 2.34.0 005 11a2.35 2.35.0 00.61 1.76A2.4 2.4.0 007.34 13.38zm13.35 1.8a1 1 0 01-.64-.16 1.3 1.3.0 01-.35-.65L15.81 1.51a3 3 0 01-.15-.67.36.36.0 01.41-.41H17.7a1 1 0 01.65.16 1.4 1.4.0 01.33.65l2.79 11 2.59-11A1.17 1.17.0 0124.39.6a1.1 1.1.0 01.67-.16H26.4a1.1 1.1.0 01.67.16 1.17 1.17.0 01.32.65L30 12.39 32.88 1.25A1.39 1.39.0 0133.22.6a1 1 0 01.65-.16h1.54a.36.36.0 01.41.41 1.36 1.36.0 010 .26 3.64 3.64.0 01-.12.41l-4 12.86a1.3 1.3.0 01-.35.65 1 1 0 01-.64.16H29.25a1 1 0 01-.67-.17 1.26 1.26.0 01-.32-.67L25.67 3.64l-2.56 10.7a1.26 1.26.0 01-.32.67 1 1 0 01-.67.17zm21.36.44a11.28 11.28.0 01-2.56-.29 7.44 7.44.0 01-1.92-.67 1 1 0 01-.61-.93v-.84q0-.52.38-.52a.9.9.0 01.31.06l.42.17a8.77 8.77.0 001.83.58 9.78 9.78.0 002 .2 4.48 4.48.0 002.43-.55 1.76 1.76.0 00.86-1.57 1.61 1.61.0 00-.45-1.16A4.29 4.29.0 0043 9.22l-2.41-.76A5.15 5.15.0 0138 6.78a3.94 3.94.0 01-.83-2.41 3.7 3.7.0 01.45-1.85 4.47 4.47.0 011.19-1.37 5.27 5.27.0 011.7-.86A7.4 7.4.0 0142.6.0a8.87 8.87.0 011.12.07q.57.07 1.08.19t.95.26a4.27 4.27.0 01.7.29 1.59 1.59.0 01.49.41.94.94.0 01.15.55v.79q0 .52-.38.52a1.76 1.76.0 01-.64-.2 7.74 7.74.0 00-3.2-.64 4.37 4.37.0 00-2.21.47 1.6 1.6.0 00-.79 1.48 1.58 1.58.0 00.49 1.18 4.94 4.94.0 001.83.92L44.55 7a5.08 5.08.0 012.57 1.6A3.76 3.76.0 0147.9 11a4.21 4.21.0 01-.44 1.93 4.4 4.4.0 01-1.21 1.47 5.43 5.43.0 01-1.85.93A8.25 8.25.0 0142.05 15.62z"/><path class="cls-2" d="M45.19 23.81C39.72 27.85 31.78 30 25 30A36.64 36.64.0 01.22 20.57c-.51-.46-.06-1.09.56-.74A49.78 49.78.0 0025.53 26.4 49.23 49.23.0 0044.4 22.53C45.32 22.14 46.1 23.14 45.19 23.81z"/><path class="cls-2" d="M47.47 21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74 3.13-2.2 8.27-1.57 8.86-.83s-.16 5.89-3.09 8.35c-.45.38-.88.18-.68-.32C46.69 25.8 48.17 22.11 47.47 21.21z"/></svg></a></div><div class=searchbox><label for=search-by><i class="fas fa-search"></i></label>
+<input data-search-input id=search-by type=search placeholder=Search...>
+<span data-search-clear><i class="fas fa-times"></i></span></div><script type=text/javascript src=https://dykhang0122.github.io/Intership_report/js/lunr.min.js?1784617449></script><script type=text/javascript src=https://dykhang0122.github.io/Intership_report/js/auto-complete.js?1784617449></script><script type=text/javascript>var baseurl="https://dykhang0122.github.io/Intership_report//vi"</script><script type=text/javascript src=https://dykhang0122.github.io/Intership_report/js/search.js?1784617449></script></div><div class=highlightable><ul class=topics><li data-nav-id=/vi/1-worklog/ title="Nhật ký công việc" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/><b>1. </b>Nhật ký công việc
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/1-worklog/1.1-week1/ title="Worklog Tuần 1" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.1-week1/><b>1.1. </b>Worklog Tuần 1
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.2-week2/ title="Worklog Tuần 2" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.2-week2/><b>1.2. </b>Worklog Tuần 2
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.3-week3/ title="Worklog Tuần 3" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.3-week3/><b>1.3. </b>Worklog Tuần 3
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.4-week4/ title="Worklog Tuần 4" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.4-week4/><b>1.4. </b>Worklog Tuần 4
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.5-week5/ title="Worklog Tuần 5" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.5-week5/><b>1.5. </b>Worklog Tuần 5
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.6-week6/ title="Worklog Tuần 6" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.6-week6/><b>1.6. </b>Worklog Tuần 6
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.7-week7/ title="Worklog Tuần 7" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.7-week7/><b>1.7. </b>Worklog Tuần 7
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.8-week8/ title="Worklog Tuần 8" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.8-week8/><b>1.8. </b>Worklog Tuần 8
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.9-week9/ title="Worklog Tuần 9" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.9-week9/><b>1.9. </b>Worklog Tuần 9
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.10-week10/ title="Worklog Tuần 10" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.10-week10/><b>1.10. </b>Worklog Tuần 10
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.11-week11/ title="Worklog Tuần 11" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.11-week11/><b>1.11. </b>Worklog Tuần 11
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/1-worklog/1.12-week12/ title="Worklog Tuần 12" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/1-worklog/1.12-week12/><b>1.12. </b>Worklog Tuần 12
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/2-proposal/ title="Bản đề xuất" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/2-proposal/><b>2. </b>Bản đề xuất
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/3-blogsposted/ title="Các bài blogs đã đăng" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/3-blogsposted/><b>3. </b>Các bài blogs đã đăng
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/3-blogsposted/3.1-blog1/ title="Các công bố lớn về AI Agent tại AWS Summit New York 2026" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/3-blogsposted/3.1-blog1/><b>3.1. </b>Các công bố lớn về AI Agent tại AWS Summit New York 2026
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/3-blogsposted/3.2-blog2/ title="Giới hạn truy cập AWS Management Console từ các mạng mong muốn" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/3-blogsposted/3.2-blog2/><b>3.2. </b>Giới hạn truy cập AWS Management Console từ các mạng mong muốn
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/4-eventparticipated/ title="Các events đã tham gia" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/4-eventparticipated/><b>4. </b>Các events đã tham gia
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/4-eventparticipated/4.1-event1/ title="Event 1" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/4-eventparticipated/4.1-event1/><b>4.1. </b>Event 1
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/5-workshop/ title=Workshop class="dd-item
+parent"><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/><b>5. </b>Workshop
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/5-workshop/1-introduce/ title="Giới thiệu" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/1-introduce/><b>1. </b>Giới thiệu
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/2-environmentsetup/ title="Chuẩn bị môi trường" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/2-environmentsetup/><b>2. </b>Chuẩn bị môi trường
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/5-workshop/2-environmentsetup/2.1-createpolicy/ title="Tạo IAM Policies" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/2-environmentsetup/2.1-createpolicy/><b>2.1 </b>Tạo IAM Policies
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/2-environmentsetup/2.2-createiamuserandattachpolicy/ title="Tạo IAM User và cấp quyền" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/2-environmentsetup/2.2-createiamuserandattachpolicy/><b>2.2 </b>Tạo IAM User và cấp quyền
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/2-environmentsetup/2.3-loginwithiamuser/ title="Đăng nhập IAM User" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/2-environmentsetup/2.3-loginwithiamuser/><b>2.3 </b>Đăng nhập IAM User
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/2-environmentsetup/2.4-creates3bucketforinvoices/ title="Tạo S3 Bucket" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/2-environmentsetup/2.4-creates3bucketforinvoices/><b>2.4 </b>Tạo S3 Bucket
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/2-environmentsetup/2.5-createdynamodbtableforinvoices/ title="Tạo DynamoDB Table" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/2-environmentsetup/2.5-createdynamodbtableforinvoices/><b>2.5 </b>Tạo DynamoDB Table
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/2-environmentsetup/2.6-requestnovaproaccess/ title="Yêu cầu Nova Pro Access" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/2-environmentsetup/2.6-requestnovaproaccess/><b>2.6. </b>Yêu cầu Nova Pro Access
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/5-workshop/3-aipoweredinvoiceprocessing/ title="Xử lý Hóa Đơn bằng AI" class="dd-item
+parent"><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/><b>3. </b>Xử lý Hóa Đơn bằng AI
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/5-workshop/3-aipoweredinvoiceprocessing/3.1-createlambdarole/ title="Tạo IAM Role cho Lambda" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/3.1-createlambdarole/><b>3.1 </b>Tạo IAM Role cho Lambda
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/3-aipoweredinvoiceprocessing/3.2-createlambdafunction-upload/ title="Tạo Lambda Function #1" class="dd-item
+active"><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/3.2-createlambdafunction-upload/><b>3.2 </b>Tạo Lambda Function #1
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/3-aipoweredinvoiceprocessing/3.3-testlambdafunction-upload/ title="Kiểm thử Lambda Function #1" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/3.3-testlambdafunction-upload/><b>3.3 </b>Kiểm thử Lambda Function #1
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/3-aipoweredinvoiceprocessing/3.4-createlambdafunction-fetch/ title="Tạo Lambda Function #2" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/3.4-createlambdafunction-fetch/><b>3.4 </b>Tạo Lambda Function #2
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/3-aipoweredinvoiceprocessing/3.5-testlambdafunction-fetch/ title="Kiểm thử Lambda Function #2" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/3.5-testlambdafunction-fetch/><b>3.5 </b>Kiểm thử Lambda Function #2
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/5-workshop/4-deployingapigateway/ title="Triển khai API Gateway" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/4-deployingapigateway/><b>4. </b>Triển khai API Gateway
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/5-workshop/4-deployingapigateway/4.1-creategetapigateway/ title="Tạo API Gateway (GET)" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/4-deployingapigateway/4.1-creategetapigateway/><b>4.1 </b>Tạo API Gateway (GET)
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/4-deployingapigateway/4.2-createpostapigateway/ title="Tạo API Gateway (POST)" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/4-deployingapigateway/4.2-createpostapigateway/><b>4.2 </b>Tạo API Gateway (POST)
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/5-workshop/5-testwithpostman/ title="Kiểm thử với Postman" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/5-testwithpostman/><b>5. </b>Kiểm thử với Postman
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/5-workshop/5-testwithpostman/5.1-testuploadfile/ title="Kiểm thử tải tệp hóa đơn" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/5-testwithpostman/5.1-testuploadfile/><b>5.1 </b>Kiểm thử tải tệp hóa đơn
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5-testwithpostman/5.2-testgetallinvoices/ title="Kiểm thử lấy tất cả hóa đơn" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/5-testwithpostman/5.2-testgetallinvoices/><b>5.2 </b>Kiểm thử lấy tất cả hóa đơn
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5-testwithpostman/5.3-testgetinvoiceid/ title="Kiểm thử lấy invoice theo ID" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/5-testwithpostman/5.3-testgetinvoiceid/><b>5.3 </b>Kiểm thử lấy invoice theo ID
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5-testwithpostman/5.4-testgetinvoicesstarred/ title="Kiểm thử lấy danh sách hóa đơn đánh dấu" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/5-testwithpostman/5.4-testgetinvoicesstarred/><b>5.4 </b>Kiểm thử lấy danh sách hóa đơn đánh dấu
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5-testwithpostman/5.5-testupdatestatusstarred/ title="Kiểm thử cập nhật trạng thái đánh dấu hóa đơn" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/5-testwithpostman/5.5-testupdatestatusstarred/><b>5.5 </b>Kiểm thử cập nhật trạng thái đánh dấu hóa đơn
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5-testwithpostman/5.6-testupdatetags/ title="Kiểm thử cập nhật danh mục hóa đơn" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/5-testwithpostman/5.6-testupdatetags/><b>5.6 </b>Kiểm thử cập nhật danh mục hóa đơn
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/5-testwithpostman/5.7-testgetinvoicebyname/ title="Kiểm thử lấy hóa đơn theo tên khách hàng" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/5-testwithpostman/5.7-testgetinvoicebyname/><b>5.7 </b>Kiểm thử lấy hóa đơn theo tên khách hàng
+<i class="fas fa-check read-icon"></i></a></li></ul></li><li data-nav-id=/vi/5-workshop/6-deployingfrontend/ title="Triển khai Frontend" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/6-deployingfrontend/><b>6 </b>Triển khai Frontend
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/7-cleanup/ title="Dọn dẹp tài nguyên" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/><b>7. </b>Dọn dẹp tài nguyên
+<i class="fas fa-check read-icon"></i></a><ul><li data-nav-id=/vi/5-workshop/7-cleanup/7.1-removeapigateway/ title="Xóa API Gateway" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/7.1-removeapigateway/><b>7.1 </b>Xóa API Gateway
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/7-cleanup/7.2-removelambdafunction/ title="Xóa Lambda Functions" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/7.2-removelambdafunction/><b>7.2 </b>Xóa Lambda Functions
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/7-cleanup/7.3-removes3bucket/ title="Xóa S3 Bucket" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/7.3-removes3bucket/><b>7.3 </b>Xóa S3 Bucket
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/7-cleanup/7.4-removedynamodb/ title="Xóa DynamoDB Table" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/7.4-removedynamodb/><b>7.4 </b>Xóa DynamoDB Table
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/7-cleanup/7.5-removecognitouserpool/ title="Xóa Cognito User Pool" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/7.5-removecognitouserpool/><b>7.5 </b>Xóa Cognito User Pool
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/7-cleanup/7.6-removeamplifyhosting/ title="Xóa Amplify Hosting App" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/7.6-removeamplifyhosting/><b>7.6 </b>Xóa Amplify Hosting App
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/7-cleanup/7.7-removecloudwatch/ title="Xóa CloudWatch Log Groups" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/7.7-removecloudwatch/><b>7.7 </b>Xóa CloudWatch Log Groups
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/7-cleanup/7.8-removeiam/ title="Xóa IAM Roles và Policies" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/7.8-removeiam/><b>7.8 </b>Xóa IAM Roles và Policies
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/5-workshop/7-cleanup/7.9-checkremainingresources/ title="Kiểm tra tài nguyên còn sót" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/7-cleanup/7.9-checkremainingresources/><b>7.9 </b>Kiểm tra tài nguyên còn sót
+<i class="fas fa-check read-icon"></i></a></li></ul></li></ul></li><li data-nav-id=/vi/6-self-evaluation/ title="Tự đánh giá" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/6-self-evaluation/><b>6. </b>Tự đánh giá
+<i class="fas fa-check read-icon"></i></a></li><li data-nav-id=/vi/7-feedback/ title="Chia sẻ, đóng góp ý kiến" class=dd-item><a href=https://dykhang0122.github.io/Intership_report/vi/7-feedback/><b>7. </b>Chia sẻ, đóng góp ý kiến
+<i class="fas fa-check read-icon"></i></a></li></ul><section id=shortcuts><h3>More</h3><ul><li><a class=padding href=https://www.facebook.com/groups/awsstudygroupfcj/><i class='fab fa-facebook'></i> AWS Study Group</a></li></ul></section><section id=prefooter><hr><ul><li><a class=padding><i class="fas fa-language fa-fw"></i><div class=select-style><select id=select-language onchange="location=this.value"><option id=en value=https://dykhang0122.github.io/Intership_report/5-workshop/3-aipoweredinvoiceprocessing/3.2-createlambdafunction-upload/>English</option><option id=vi value=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/3.2-createlambdafunction-upload/ selected>Tiếng Việt</option></select><svg id="Capa_1" xmlns:xlink="http://www.w3.org/1999/xlink" width="255" height="255" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255"><g><g id="arrow-drop-down"><polygon points="0,63.75 127.5,191.25 255,63.75"/></g></g></svg></div></a></li><li><a class=padding href=# data-clear-history-toggle><i class="fas fa-history fa-fw"></i> Clear History</a></li></ul></section><section id=footer><left><br><br><b>Last Updated</b><br><i><span id=lastUpdated style=color:orange></span>
+</i><script>const today=new Date,formattedDate=today.toLocaleDateString("en-GB");document.getElementById("lastUpdated").textContent=formattedDate</script></left><left><br><br><b>Team</b><br><i><a href=https://www.facebook.com/groups/660548818043427 style=color:orange>First Cloud Journey</a><br></i></left><script async defer src=https://buttons.github.io/buttons.js></script></section></div></nav><section id=body><div id=overlay></div><div class="padding highlightable"><div><div id=top-bar><div id=breadcrumbs itemscope itemtype=http://data-vocabulary.org/Breadcrumb><span id=sidebar-toggle-span><a href=# id=sidebar-toggle data-sidebar-toggle><i class="fas fa-bars"></i>
+</a></span><span id=toc-menu><i class="fas fa-list-alt"></i></span>
+<span class=links><a href=https://dykhang0122.github.io/Intership_report/vi/>Báo cáo thực tập</a> > <a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/>Workshop</a> > <a href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/>Xử lý Hóa Đơn bằng AI</a> > Tạo Lambda Function #1</span></div><div class=progress><div class=wrapper><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul></nav></div></div></div></div><div id=head-tags></div><div id=body-inner><h1>Tạo Lambda Function #1</h1><h4 id=tổng-quan>Tổng quan</h4><p>Trong bước này, bạn sẽ tạo Lambda Function đầu tiên có tên là <strong>UploadInvoiceFileFunction</strong>. Function này sẽ được kích hoạt khi người dùng tải lên một file hóa đơn vào S3 bucket. Sau đó, nó sẽ sử dụng <strong>Amazon Textract</strong> để trích xuất văn bản, <strong>OpenAI API</strong> để phân tích và hiểu nội dung, cuối cùng lưu thông tin vào <strong>DynamoDB</strong>.</p><hr><h4 id=bước-1-truy-cập-lambda-console>Bước 1: Truy cập Lambda Console</h4><ol><li>Đăng nhập vào <a href=https://console.aws.amazon.com/>AWS Console</a>, tìm <strong>Lambda</strong>, sau đó chọn <strong>Lambda</strong>.</li></ol><p><img alt="Open Lambda" src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.2-uploadinvoicelambda/001-openlambda.png></p><div class="notices warning"><p>⚠️ <strong>Lưu ý</strong>: Hãy đảm bảo bạn đang ở đúng <strong>Region: Singapore (ap-southeast)</strong> trước khi tạo Lambda function. Đây là vùng bạn đã tạo S3 bucket, DynamoDB table và đăng ký Amazon Bedrock. Nếu chọn sai vùng, Lambda sẽ không thể truy cập được các dịch vụ khác của hệ thống.</p></div><ol start=2><li>Nhấn <strong>Create function</strong>.</li></ol><p><img alt="Create Function" src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.2-uploadinvoicelambda/002-createfunction.png></p><h4 id=bước-2-cấu-hình-lambda-function>Bước 2: Cấu hình Lambda Function</h4><ol><li><p>Ở mục <strong>Author from scratch</strong>, nhập các thông tin sau:</p><ul><li><strong>Function name</strong>: <code>UploadInvoiceFileFunction</code></li><li><strong>Runtime</strong>: <code>Python 3.12</code></li><li><strong>Architecture</strong>: <code>x86_64</code></li><li><strong>Permissions</strong>: Chọn <strong>Use an existing role</strong></li><li><strong>Existing role</strong>: <code>LambdaExecutionRole-AIInvoiceScanner</code> (đã tạo ở bước trước)</li></ul></li></ol><p><img alt="Configure Function" src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.2-uploadinvoicelambda/003-configurefunction.png></p><ol start=2><li>Nhấn <strong>Create function</strong> để khởi tạo.</li></ol><p><img alt="Configure Function" src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.2-uploadinvoicelambda/004-createfunction.png></p><hr><h4 id=bước-3-thêm-mã-nguồn-python>Bước 3: Thêm mã nguồn Python</h4><ol><li><p>Sau khi function được tạo, cuộn xuống phần <strong>Code</strong> trong giao diện Lambda.</p></li><li><p>Dán <strong>toàn bộ đoạn mã Python</strong> dưới đây vào, thay thế nội dung mặc định:</p></li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> boto3
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> json
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> uuid
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> base64
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> re
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> urllib.parse
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> urllib.request
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> urllib.error
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> time
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> datetime
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> hashlib
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> decimal <span style=color:#f92672>import</span> Decimal
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># AWS CONFIG</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span>s3 <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>client(<span style=color:#e6db74>&#34;s3&#34;</span>)
+</span></span><span style=display:flex><span>textract <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>client(<span style=color:#e6db74>&#34;textract&#34;</span>)
+</span></span><span style=display:flex><span>dynamodb <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>resource(<span style=color:#e6db74>&#34;dynamodb&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>BUCKET_NAME <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>environ<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;BUCKET_NAME&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> BUCKET_NAME:
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>raise</span> <span style=color:#a6e22e>ValueError</span>(<span style=color:#e6db74>&#34;Missing BUCKET_NAME environment variable&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>DYNAMO_TABLE_NAME <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>environ<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;DYNAMO_TABLE_NAME&#34;</span>, <span style=color:#e6db74>&#34;InvoiceData&#34;</span>)
+</span></span><span style=display:flex><span>table <span style=color:#f92672>=</span> dynamodb<span style=color:#f92672>.</span>Table(DYNAMO_TABLE_NAME)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># APP CONFIG</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span>UPLOAD_PREFIX <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>environ<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;UPLOAD_PREFIX&#34;</span>, <span style=color:#e6db74>&#34;uploads/&#34;</span>)
+</span></span><span style=display:flex><span>ALLOWED_EXTENSIONS <span style=color:#f92672>=</span> (<span style=color:#e6db74>&#34;.png&#34;</span>, <span style=color:#e6db74>&#34;.jpg&#34;</span>, <span style=color:#e6db74>&#34;.jpeg&#34;</span>, <span style=color:#e6db74>&#34;.pdf&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Chỉ dùng 1 model OpenAI.</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Khuyên dùng: gpt-4.1-mini cho ổn định. Nếu tài khoản còn hỗ trợ nano, có thể đặt OPENAI_MODEL=gpt-4.1-nano.</span>
+</span></span><span style=display:flex><span>OPENAI_MODEL <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>environ<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;OPENAI_MODEL&#34;</span>, <span style=color:#e6db74>&#34;gpt-4.1-mini&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Giới hạn output để tiết kiệm token</span>
+</span></span><span style=display:flex><span>MAX_OUTPUT_TOKENS <span style=color:#f92672>=</span> int(os<span style=color:#f92672>.</span>environ<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;MAX_OUTPUT_TOKENS&#34;</span>, <span style=color:#e6db74>&#34;250&#34;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Giới hạn text OCR gửi lên AI để tránh tốn token khi hóa đơn quá dài</span>
+</span></span><span style=display:flex><span>MAX_OCR_CHARS <span style=color:#f92672>=</span> int(os<span style=color:#f92672>.</span>environ<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;MAX_OCR_CHARS&#34;</span>, <span style=color:#e6db74>&#34;6000&#34;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># RESPONSE HELPERS</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>decimal_default</span>(obj):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> isinstance(obj, Decimal):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> float(round(obj, <span style=color:#ae81ff>2</span>))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>raise</span> <span style=color:#a6e22e>TypeError</span>(<span style=color:#e6db74>&#34;Type not serializable&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>make_response</span>(status_code, body_dict):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;statusCode&#34;</span>: status_code,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;headers&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;Access-Control-Allow-Origin&#34;</span>: <span style=color:#e6db74>&#34;*&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;Access-Control-Allow-Credentials&#34;</span>: <span style=color:#e6db74>&#34;true&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;Access-Control-Allow-Headers&#34;</span>: <span style=color:#e6db74>&#34;*&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;Access-Control-Allow-Methods&#34;</span>: <span style=color:#e6db74>&#34;OPTIONS,GET,POST&#34;</span>
+</span></span><span style=display:flex><span>        },
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;body&#34;</span>: json<span style=color:#f92672>.</span>dumps(body_dict, default<span style=color:#f92672>=</span>decimal_default, ensure_ascii<span style=color:#f92672>=</span><span style=color:#66d9ef>False</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># BASIC HELPERS</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>clean_filename</span>(filename):
+</span></span><span style=display:flex><span>    filename <span style=color:#f92672>=</span> filename <span style=color:#f92672>or</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;invoice_</span><span style=color:#e6db74>{</span>uuid<span style=color:#f92672>.</span>uuid4()<span style=color:#f92672>.</span>hex<span style=color:#e6db74>}</span><span style=color:#e6db74>.png&#34;</span>
+</span></span><span style=display:flex><span>    filename <span style=color:#f92672>=</span> filename<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;/&#34;</span>)[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\\</span><span style=color:#e6db74>&#34;</span>)[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;[^a-zA-Z0-9_\-\.]&#34;</span>, <span style=color:#e6db74>&#34;_&#34;</span>, filename)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_content_type</span>(filename):
+</span></span><span style=display:flex><span>    lower <span style=color:#f92672>=</span> filename<span style=color:#f92672>.</span>lower()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> lower<span style=color:#f92672>.</span>endswith(<span style=color:#e6db74>&#34;.png&#34;</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;image/png&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> lower<span style=color:#f92672>.</span>endswith((<span style=color:#e6db74>&#34;.jpg&#34;</span>, <span style=color:#e6db74>&#34;.jpeg&#34;</span>)):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;image/jpeg&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> lower<span style=color:#f92672>.</span>endswith(<span style=color:#e6db74>&#34;.pdf&#34;</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;application/pdf&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;application/octet-stream&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>is_allowed_file</span>(key):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> key<span style=color:#f92672>.</span>lower()<span style=color:#f92672>.</span>endswith(ALLOWED_EXTENSIONS)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>compact_ocr_text</span>(text):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Tối ưu token:
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    - Xóa khoảng trắng dư
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    - Bỏ dòng trống
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    - Nếu quá dài, giữ phần đầu và phần cuối vì tổng tiền thường nằm cuối hóa đơn
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    lines <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> line <span style=color:#f92672>in</span> text<span style=color:#f92672>.</span>splitlines():
+</span></span><span style=display:flex><span>        line <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;\s+&#34;</span>, <span style=color:#e6db74>&#34; &#34;</span>, line)<span style=color:#f92672>.</span>strip()
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> line:
+</span></span><span style=display:flex><span>            lines<span style=color:#f92672>.</span>append(line)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    compacted <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>join(lines)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> len(compacted) <span style=color:#f92672>&lt;=</span> MAX_OCR_CHARS:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> compacted
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    head_size <span style=color:#f92672>=</span> int(MAX_OCR_CHARS <span style=color:#f92672>*</span> <span style=color:#ae81ff>0.65</span>)
+</span></span><span style=display:flex><span>    tail_size <span style=color:#f92672>=</span> MAX_OCR_CHARS <span style=color:#f92672>-</span> head_size
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> (
+</span></span><span style=display:flex><span>        compacted[:head_size]
+</span></span><span style=display:flex><span>        <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>...</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>[OCR_TEXT_TRUNCATED_TO_SAVE_TOKENS]</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>...</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>+</span> compacted[<span style=color:#f92672>-</span>tail_size:]
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>safe_parse_json</span>(ai_text):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>        text <span style=color:#f92672>=</span> ai_text<span style=color:#f92672>.</span>strip()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Nếu model lỡ bọc ```json ... ```</span>
+</span></span><span style=display:flex><span>        text <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;^```json\s*&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>, text, flags<span style=color:#f92672>=</span>re<span style=color:#f92672>.</span>IGNORECASE)
+</span></span><span style=display:flex><span>        text <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;^```\s*&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>, text)
+</span></span><span style=display:flex><span>        text <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>sub(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;\s*```$&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>, text)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>match</span> <span style=color:#f92672>=</span> re<span style=color:#f92672>.</span>search(<span style=color:#e6db74>r</span><span style=color:#e6db74>&#34;(\{.*\})&#34;</span>, text, re<span style=color:#f92672>.</span>DOTALL)
+</span></span><span style=display:flex><span>        json_str <span style=color:#f92672>=</span> <span style=color:#66d9ef>match</span><span style=color:#f92672>.</span>group(<span style=color:#ae81ff>1</span>) <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>match</span> <span style=color:#66d9ef>else</span> text
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> json<span style=color:#f92672>.</span>loads(json_str, parse_float<span style=color:#f92672>=</span>Decimal)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;❌ Parse JSON error:&#34;</span>, str(e))
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;Raw AI text preview:&#34;</span>, ai_text[:<span style=color:#ae81ff>300</span>])
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>normalize_invoice_data</span>(data):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Đảm bảo DynamoDB luôn có schema ổn định.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> isinstance(data, dict):
+</span></span><span style=display:flex><span>        data <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    normalized <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;InvoiceNumber&#34;</span>: data<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;InvoiceNumber&#34;</span>),
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;CustomerName&#34;</span>: data<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;CustomerName&#34;</span>),
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;InvoiceDate&#34;</span>: data<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;InvoiceDate&#34;</span>),
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;TotalAmount&#34;</span>: data<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;TotalAmount&#34;</span>)
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Chuẩn hóa chuỗi rỗng thành null</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> key <span style=color:#f92672>in</span> [<span style=color:#e6db74>&#34;InvoiceNumber&#34;</span>, <span style=color:#e6db74>&#34;CustomerName&#34;</span>, <span style=color:#e6db74>&#34;InvoiceDate&#34;</span>]:
+</span></span><span style=display:flex><span>        value <span style=color:#f92672>=</span> normalized<span style=color:#f92672>.</span>get(key)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> isinstance(value, str):
+</span></span><span style=display:flex><span>            value <span style=color:#f92672>=</span> value<span style=color:#f92672>.</span>strip()
+</span></span><span style=display:flex><span>            normalized[key] <span style=color:#f92672>=</span> value <span style=color:#66d9ef>if</span> value <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Chuẩn hóa TotalAmount</span>
+</span></span><span style=display:flex><span>    amount <span style=color:#f92672>=</span> normalized<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;TotalAmount&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> amount <span style=color:#f92672>in</span> [<span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#66d9ef>None</span>]:
+</span></span><span style=display:flex><span>        normalized[<span style=color:#e6db74>&#34;TotalAmount&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            normalized[<span style=color:#e6db74>&#34;TotalAmount&#34;</span>] <span style=color:#f92672>=</span> Decimal(str(amount))
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span>:
+</span></span><span style=display:flex><span>            normalized[<span style=color:#e6db74>&#34;TotalAmount&#34;</span>] <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> normalized
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>create_file_id</span>(bucket, key):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Tạo ID cố định theo S3 object metadata.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Giúp upload/click lại cùng một file thì không gọi Textract/OpenAI lại.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>        head <span style=color:#f92672>=</span> s3<span style=color:#f92672>.</span>head_object(Bucket<span style=color:#f92672>=</span>bucket, Key<span style=color:#f92672>=</span>key)
+</span></span><span style=display:flex><span>        etag <span style=color:#f92672>=</span> head<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;ETag&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>)<span style=color:#f92672>.</span>replace(<span style=color:#e6db74>&#39;&#34;&#39;</span>, <span style=color:#e6db74>&#34;&#34;</span>)
+</span></span><span style=display:flex><span>        size <span style=color:#f92672>=</span> str(head<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;ContentLength&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>))
+</span></span><span style=display:flex><span>        last_modified <span style=color:#f92672>=</span> str(head<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;LastModified&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>))
+</span></span><span style=display:flex><span>        raw <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>bucket<span style=color:#e6db74>}</span><span style=color:#e6db74>|</span><span style=color:#e6db74>{</span>key<span style=color:#e6db74>}</span><span style=color:#e6db74>|</span><span style=color:#e6db74>{</span>etag<span style=color:#e6db74>}</span><span style=color:#e6db74>|</span><span style=color:#e6db74>{</span>size<span style=color:#e6db74>}</span><span style=color:#e6db74>|</span><span style=color:#e6db74>{</span>last_modified<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;⚠️ Cannot read S3 metadata for hash, fallback to bucket/key:&#34;</span>, str(e))
+</span></span><span style=display:flex><span>        raw <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>bucket<span style=color:#e6db74>}</span><span style=color:#e6db74>|</span><span style=color:#e6db74>{</span>key<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    digest <span style=color:#f92672>=</span> hashlib<span style=color:#f92672>.</span>sha256(raw<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#34;utf-8&#34;</span>))<span style=color:#f92672>.</span>hexdigest()
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;FILE_</span><span style=color:#e6db74>{</span>digest[:<span style=color:#ae81ff>24</span>]<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>, digest
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>get_existing_success</span>(invoice_id):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Cache theo InvoiceId.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Nếu file đã xử lý SUCCESS rồi thì không gọi Textract/OpenAI nữa.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>        response <span style=color:#f92672>=</span> table<span style=color:#f92672>.</span>get_item(Key<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;InvoiceId&#34;</span>: invoice_id})
+</span></span><span style=display:flex><span>        item <span style=color:#f92672>=</span> response<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;Item&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> item <span style=color:#f92672>and</span> item<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;ProcessStatus&#34;</span>) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;SUCCESS&#34;</span>:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> item
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;⚠️ DynamoDB get_item failed:&#34;</span>, str(e))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># TEXTRACT</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>extract_text_with_textract</span>(bucket, key):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Đọc text bằng Amazon Textract.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Với hóa đơn ảnh PNG/JPG, detect_document_text đủ cho lab.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Nếu muốn chuyên hóa đơn hơn, có thể đổi sang analyze_expense.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    response <span style=color:#f92672>=</span> textract<span style=color:#f92672>.</span>detect_document_text(
+</span></span><span style=display:flex><span>        Document<span style=color:#f92672>=</span>{
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;S3Object&#34;</span>: {
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;Bucket&#34;</span>: bucket,
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;Name&#34;</span>: key
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    lines <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>        block<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;Text&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> block <span style=color:#f92672>in</span> response<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;Blocks&#34;</span>, [])
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> block<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;BlockType&#34;</span>) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;LINE&#34;</span> <span style=color:#f92672>and</span> block<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;Text&#34;</span>)
+</span></span><span style=display:flex><span>    ]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    raw_text <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span><span style=color:#f92672>.</span>join(lines)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> compact_ocr_text(raw_text)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># OPENAI ONLY</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>build_prompt</span>(extracted_text):
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;&#34;&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    Prompt ngắn để tiết kiệm token.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    response_format=json_object sẽ ép model trả JSON hợp lệ.
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> (
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;Extract invoice data from OCR text. Return only JSON with exactly these keys:</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;{&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>InvoiceNumber</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>: null, &#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>CustomerName</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>: null, &#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>InvoiceDate</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>: null, &#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>TotalAmount</span><span style=color:#ae81ff>\&#34;</span><span style=color:#e6db74>: null&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;}</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;Rules: InvoiceDate=YYYY-MM-DD if possible. TotalAmount=number only. &#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;Use null if missing. No explanation.</span><span style=color:#ae81ff>\n\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;OCR_TEXT:</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>extracted_text<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>call_openai</span>(extracted_text):
+</span></span><span style=display:flex><span>    api_key <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>environ<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;OPENAI_API_KEY&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> api_key:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>raise</span> <span style=color:#a6e22e>ValueError</span>(<span style=color:#e6db74>&#34;Missing OPENAI_API_KEY environment variable&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    url <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;https://api.openai.com/v1/chat/completions&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    payload <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;model&#34;</span>: OPENAI_MODEL,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;messages&#34;</span>: [
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;role&#34;</span>: <span style=color:#e6db74>&#34;system&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;content&#34;</span>: <span style=color:#e6db74>&#34;You are an invoice parser. You must output valid JSON only.&#34;</span>
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;role&#34;</span>: <span style=color:#e6db74>&#34;user&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;content&#34;</span>: build_prompt(extracted_text)
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        ],
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;temperature&#34;</span>: <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;max_tokens&#34;</span>: MAX_OUTPUT_TOKENS,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;response_format&#34;</span>: {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;json_object&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    data <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>dumps(payload)<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#34;utf-8&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    request <span style=color:#f92672>=</span> urllib<span style=color:#f92672>.</span>request<span style=color:#f92672>.</span>Request(
+</span></span><span style=display:flex><span>        url,
+</span></span><span style=display:flex><span>        data<span style=color:#f92672>=</span>data,
+</span></span><span style=display:flex><span>        method<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;POST&#34;</span>,
+</span></span><span style=display:flex><span>        headers<span style=color:#f92672>=</span>{
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;Content-Type&#34;</span>: <span style=color:#e6db74>&#34;application/json&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;Authorization&#34;</span>: <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Bearer </span><span style=color:#e6db74>{</span>api_key<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>with</span> urllib<span style=color:#f92672>.</span>request<span style=color:#f92672>.</span>urlopen(request, timeout<span style=color:#f92672>=</span><span style=color:#ae81ff>25</span>) <span style=color:#66d9ef>as</span> response:
+</span></span><span style=display:flex><span>            result <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>loads(response<span style=color:#f92672>.</span>read()<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#34;utf-8&#34;</span>))
+</span></span><span style=display:flex><span>            ai_text <span style=color:#f92672>=</span> result[<span style=color:#e6db74>&#34;choices&#34;</span>][<span style=color:#ae81ff>0</span>][<span style=color:#e6db74>&#34;message&#34;</span>][<span style=color:#e6db74>&#34;content&#34;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            usage <span style=color:#f92672>=</span> result<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;usage&#34;</span>, {})
+</span></span><span style=display:flex><span>            print(
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;✅ OpenAI success | &#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;model=</span><span style=color:#e6db74>{</span>OPENAI_MODEL<span style=color:#e6db74>}</span><span style=color:#e6db74> | &#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;prompt_tokens=</span><span style=color:#e6db74>{</span>usage<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;prompt_tokens&#39;</span>)<span style=color:#e6db74>}</span><span style=color:#e6db74> | &#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;completion_tokens=</span><span style=color:#e6db74>{</span>usage<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;completion_tokens&#39;</span>)<span style=color:#e6db74>}</span><span style=color:#e6db74> | &#34;</span>
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;total_tokens=</span><span style=color:#e6db74>{</span>usage<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;total_tokens&#39;</span>)<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>            )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> ai_text, usage
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span> urllib<span style=color:#f92672>.</span>error<span style=color:#f92672>.</span>HTTPError <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>        error_body <span style=color:#f92672>=</span> e<span style=color:#f92672>.</span>read()<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#34;utf-8&#34;</span>)
+</span></span><span style=display:flex><span>        error_msg <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;OpenAI API error: </span><span style=color:#e6db74>{</span>e<span style=color:#f92672>.</span>code<span style=color:#e6db74>}</span><span style=color:#e6db74> - </span><span style=color:#e6db74>{</span>error_body<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;❌&#34;</span>, error_msg)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>raise</span> <span style=color:#a6e22e>Exception</span>(error_msg)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;❌ OpenAI connection error:&#34;</span>, str(e))
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>raise</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>call_openai_with_retry</span>(extracted_text, max_retries<span style=color:#f92672>=</span><span style=color:#ae81ff>3</span>):
+</span></span><span style=display:flex><span>    last_exception <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> attempt <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>, max_retries <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> call_openai(extracted_text)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>            error_msg <span style=color:#f92672>=</span> str(e)
+</span></span><span style=display:flex><span>            last_exception <span style=color:#f92672>=</span> e
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;❌ OpenAI error attempt </span><span style=color:#e6db74>{</span>attempt<span style=color:#e6db74>}</span><span style=color:#e6db74>: </span><span style=color:#e6db74>{</span>error_msg<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># Lỗi tiền/key/quota thì không retry để tránh tốn thời gian</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> any(word <span style=color:#f92672>in</span> error_msg<span style=color:#f92672>.</span>lower() <span style=color:#66d9ef>for</span> word <span style=color:#f92672>in</span> [<span style=color:#e6db74>&#34;quota&#34;</span>, <span style=color:#e6db74>&#34;insufficient&#34;</span>, <span style=color:#e6db74>&#34;invalid api key&#34;</span>, <span style=color:#e6db74>&#34;unauthorized&#34;</span>, <span style=color:#e6db74>&#34;401&#34;</span>]):
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>raise</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># Retry cho rate limit hoặc lỗi server</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;429&#34;</span> <span style=color:#f92672>in</span> error_msg <span style=color:#f92672>or</span> <span style=color:#e6db74>&#34;rate&#34;</span> <span style=color:#f92672>in</span> error_msg<span style=color:#f92672>.</span>lower() <span style=color:#f92672>or</span> any(code <span style=color:#f92672>in</span> error_msg <span style=color:#66d9ef>for</span> code <span style=color:#f92672>in</span> [<span style=color:#e6db74>&#34;500&#34;</span>, <span style=color:#e6db74>&#34;502&#34;</span>, <span style=color:#e6db74>&#34;503&#34;</span>, <span style=color:#e6db74>&#34;504&#34;</span>]):
+</span></span><span style=display:flex><span>                wait_seconds <span style=color:#f92672>=</span> min((<span style=color:#ae81ff>2</span> <span style=color:#f92672>**</span> attempt) <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>20</span>)
+</span></span><span style=display:flex><span>                print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;⏳ Retrying OpenAI in </span><span style=color:#e6db74>{</span>wait_seconds<span style=color:#e6db74>}</span><span style=color:#e6db74>s...&#34;</span>)
+</span></span><span style=display:flex><span>                time<span style=color:#f92672>.</span>sleep(wait_seconds)
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>raise</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>raise</span> last_exception
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># DYNAMODB</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>save_invoice_item</span>(
+</span></span><span style=display:flex><span>    invoice_id,
+</span></span><span style=display:flex><span>    bucket,
+</span></span><span style=display:flex><span>    key,
+</span></span><span style=display:flex><span>    file_hash,
+</span></span><span style=display:flex><span>    status,
+</span></span><span style=display:flex><span>    extracted_data,
+</span></span><span style=display:flex><span>    openai_usage<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>,
+</span></span><span style=display:flex><span>    error_message<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>,
+</span></span><span style=display:flex><span>    ocr_preview<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>):
+</span></span><span style=display:flex><span>    item <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;InvoiceId&#34;</span>: invoice_id,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;S3Path&#34;</span>: <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;s3://</span><span style=color:#e6db74>{</span>bucket<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>key<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;Bucket&#34;</span>: bucket,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;S3Key&#34;</span>: key,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;FileHash&#34;</span>: file_hash,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;ProcessStatus&#34;</span>: status,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;ExtractedData&#34;</span>: extracted_data,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;Tags&#34;</span>: [],
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;ProcessedAt&#34;</span>: datetime<span style=color:#f92672>.</span>datetime<span style=color:#f92672>.</span>utcnow()<span style=color:#f92672>.</span>isoformat()
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> openai_usage:
+</span></span><span style=display:flex><span>        item[<span style=color:#e6db74>&#34;OpenAIUsage&#34;</span>] <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;PromptTokens&#34;</span>: openai_usage<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;prompt_tokens&#34;</span>),
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;CompletionTokens&#34;</span>: openai_usage<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;completion_tokens&#34;</span>),
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;TotalTokens&#34;</span>: openai_usage<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;total_tokens&#34;</span>)
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> error_message:
+</span></span><span style=display:flex><span>        item[<span style=color:#e6db74>&#34;ErrorMessage&#34;</span>] <span style=color:#f92672>=</span> str(error_message)[:<span style=color:#ae81ff>1000</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ocr_preview:
+</span></span><span style=display:flex><span>        item[<span style=color:#e6db74>&#34;OcrPreview&#34;</span>] <span style=color:#f92672>=</span> ocr_preview[:<span style=color:#ae81ff>500</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    table<span style=color:#f92672>.</span>put_item(Item<span style=color:#f92672>=</span>item)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> item
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># PROCESS S3 OBJECT</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>process_s3_object</span>(bucket, key):
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;📥 Processing S3 object: s3://</span><span style=color:#e6db74>{</span>bucket<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>key<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> key<span style=color:#f92672>.</span>startswith(UPLOAD_PREFIX):
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;⏭️ Skip object outside upload prefix: </span><span style=color:#e6db74>{</span>key<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;key&#34;</span>: key,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;SKIPPED&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;reason&#34;</span>: <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Object is not under prefix </span><span style=color:#e6db74>{</span>UPLOAD_PREFIX<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> is_allowed_file(key):
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;⏭️ Unsupported file type: </span><span style=color:#e6db74>{</span>key<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;key&#34;</span>: key,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;SKIPPED&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;reason&#34;</span>: <span style=color:#e6db74>&#34;Only PNG, JPG, JPEG or PDF are supported&#34;</span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    invoice_id, file_hash <span style=color:#f92672>=</span> create_file_id(bucket, key)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Cache: nếu file đã xử lý thành công rồi thì không tốn Textract/OpenAI lần nữa</span>
+</span></span><span style=display:flex><span>    existing <span style=color:#f92672>=</span> get_existing_success(invoice_id)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> existing:
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;♻️ Cache hit. Skip Textract/OpenAI for InvoiceId=</span><span style=color:#e6db74>{</span>invoice_id<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;key&#34;</span>: key,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;invoice_id&#34;</span>: invoice_id,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;CACHED&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;data&#34;</span>: existing
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 1. Textract OCR</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>        extracted_text <span style=color:#f92672>=</span> extract_text_with_textract(bucket, key)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>        error_msg <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Textract failed: </span><span style=color:#e6db74>{</span>str(e)<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;❌&#34;</span>, error_msg)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        item <span style=color:#f92672>=</span> save_invoice_item(
+</span></span><span style=display:flex><span>            invoice_id<span style=color:#f92672>=</span>invoice_id,
+</span></span><span style=display:flex><span>            bucket<span style=color:#f92672>=</span>bucket,
+</span></span><span style=display:flex><span>            key<span style=color:#f92672>=</span>key,
+</span></span><span style=display:flex><span>            file_hash<span style=color:#f92672>=</span>file_hash,
+</span></span><span style=display:flex><span>            status<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;FAILED&#34;</span>,
+</span></span><span style=display:flex><span>            extracted_data<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;error&#34;</span>: error_msg},
+</span></span><span style=display:flex><span>            error_message<span style=color:#f92672>=</span>error_msg
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;key&#34;</span>: key,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;invoice_id&#34;</span>: invoice_id,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;FAILED&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;error&#34;</span>: error_msg,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;data&#34;</span>: item
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> len(extracted_text<span style=color:#f92672>.</span>strip()) <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>20</span>:
+</span></span><span style=display:flex><span>        error_msg <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;No valid text found in the document.&#34;</span>
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;❌&#34;</span>, error_msg)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        item <span style=color:#f92672>=</span> save_invoice_item(
+</span></span><span style=display:flex><span>            invoice_id<span style=color:#f92672>=</span>invoice_id,
+</span></span><span style=display:flex><span>            bucket<span style=color:#f92672>=</span>bucket,
+</span></span><span style=display:flex><span>            key<span style=color:#f92672>=</span>key,
+</span></span><span style=display:flex><span>            file_hash<span style=color:#f92672>=</span>file_hash,
+</span></span><span style=display:flex><span>            status<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;FAILED&#34;</span>,
+</span></span><span style=display:flex><span>            extracted_data<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;error&#34;</span>: error_msg},
+</span></span><span style=display:flex><span>            error_message<span style=color:#f92672>=</span>error_msg,
+</span></span><span style=display:flex><span>            ocr_preview<span style=color:#f92672>=</span>extracted_text
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;key&#34;</span>: key,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;invoice_id&#34;</span>: invoice_id,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;FAILED&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;error&#34;</span>: error_msg,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;data&#34;</span>: item
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 2. OpenAI chuẩn hóa JSON</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>        ai_text, usage <span style=color:#f92672>=</span> call_openai_with_retry(extracted_text)
+</span></span><span style=display:flex><span>        parsed_data <span style=color:#f92672>=</span> safe_parse_json(ai_text)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> parsed_data <span style=color:#f92672>is</span> <span style=color:#66d9ef>None</span>:
+</span></span><span style=display:flex><span>            status <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;FAILED&#34;</span>
+</span></span><span style=display:flex><span>            normalized_data <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;error&#34;</span>: <span style=color:#e6db74>&#34;Invalid JSON from OpenAI&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;raw_ai_text&#34;</span>: ai_text[:<span style=color:#ae81ff>500</span>]
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>            status <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;SUCCESS&#34;</span>
+</span></span><span style=display:flex><span>            normalized_data <span style=color:#f92672>=</span> normalize_invoice_data(parsed_data)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>        error_msg <span style=color:#f92672>=</span> str(e)
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;❌ OpenAI processing failed:&#34;</span>, error_msg)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        item <span style=color:#f92672>=</span> save_invoice_item(
+</span></span><span style=display:flex><span>            invoice_id<span style=color:#f92672>=</span>invoice_id,
+</span></span><span style=display:flex><span>            bucket<span style=color:#f92672>=</span>bucket,
+</span></span><span style=display:flex><span>            key<span style=color:#f92672>=</span>key,
+</span></span><span style=display:flex><span>            file_hash<span style=color:#f92672>=</span>file_hash,
+</span></span><span style=display:flex><span>            status<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;FAILED&#34;</span>,
+</span></span><span style=display:flex><span>            extracted_data<span style=color:#f92672>=</span>{<span style=color:#e6db74>&#34;error&#34;</span>: error_msg},
+</span></span><span style=display:flex><span>            error_message<span style=color:#f92672>=</span>error_msg,
+</span></span><span style=display:flex><span>            ocr_preview<span style=color:#f92672>=</span>extracted_text
+</span></span><span style=display:flex><span>        )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;key&#34;</span>: key,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;invoice_id&#34;</span>: invoice_id,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;status&#34;</span>: <span style=color:#e6db74>&#34;FAILED&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;error&#34;</span>: error_msg,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;data&#34;</span>: item
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># 3. Lưu DynamoDB</span>
+</span></span><span style=display:flex><span>    item <span style=color:#f92672>=</span> save_invoice_item(
+</span></span><span style=display:flex><span>        invoice_id<span style=color:#f92672>=</span>invoice_id,
+</span></span><span style=display:flex><span>        bucket<span style=color:#f92672>=</span>bucket,
+</span></span><span style=display:flex><span>        key<span style=color:#f92672>=</span>key,
+</span></span><span style=display:flex><span>        file_hash<span style=color:#f92672>=</span>file_hash,
+</span></span><span style=display:flex><span>        status<span style=color:#f92672>=</span>status,
+</span></span><span style=display:flex><span>        extracted_data<span style=color:#f92672>=</span>normalized_data,
+</span></span><span style=display:flex><span>        openai_usage<span style=color:#f92672>=</span>usage,
+</span></span><span style=display:flex><span>        error_message<span style=color:#f92672>=</span><span style=color:#66d9ef>None</span> <span style=color:#66d9ef>if</span> status <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;SUCCESS&#34;</span> <span style=color:#66d9ef>else</span> <span style=color:#e6db74>&#34;Invalid JSON from OpenAI&#34;</span>,
+</span></span><span style=display:flex><span>        ocr_preview<span style=color:#f92672>=</span>extracted_text
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;✅ DynamoDB saved | InvoiceId=</span><span style=color:#e6db74>{</span>invoice_id<span style=color:#e6db74>}</span><span style=color:#e6db74> | status=</span><span style=color:#e6db74>{</span>status<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> {
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;key&#34;</span>: key,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;invoice_id&#34;</span>: invoice_id,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;status&#34;</span>: status,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;data&#34;</span>: item
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># HANDLER: API GATEWAY UPLOAD + S3 TRIGGER</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ============================================================</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>lambda_handler</span>(event, context):
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Không print toàn bộ event vì API Gateway có thể chứa ảnh base64 rất dài</span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;🔍 Incoming event keys:&#34;</span>, list(event<span style=color:#f92672>.</span>keys()))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Preflight CORS</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> event<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;httpMethod&#34;</span>) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;OPTIONS&#34;</span>:
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> make_response(<span style=color:#ae81ff>200</span>, {<span style=color:#e6db74>&#34;message&#34;</span>: <span style=color:#e6db74>&#34;OK&#34;</span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># ------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># CASE 1: API Gateway Upload</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Body dạng JSON:</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># {</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#   &#34;file&#34;: &#34;data:image/png;base64,...&#34;,</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>#   &#34;filename&#34;: &#34;demo_invoice.png&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># }</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># ------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;body&#34;</span> <span style=color:#f92672>in</span> event <span style=color:#f92672>and</span> isinstance(event<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;body&#34;</span>), str) <span style=color:#f92672>and</span> <span style=color:#e6db74>&#34;Records&#34;</span> <span style=color:#f92672>not</span> <span style=color:#f92672>in</span> event:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>&#34;🌐 API Gateway upload request received&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            body_text <span style=color:#f92672>=</span> event[<span style=color:#e6db74>&#34;body&#34;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># Nếu API Gateway encode toàn bộ body base64</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> event<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;isBase64Encoded&#34;</span>):
+</span></span><span style=display:flex><span>                body_text <span style=color:#f92672>=</span> base64<span style=color:#f92672>.</span>b64decode(body_text)<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#34;utf-8&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            body <span style=color:#f92672>=</span> json<span style=color:#f92672>.</span>loads(body_text)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;file&#34;</span> <span style=color:#f92672>not</span> <span style=color:#f92672>in</span> body:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> make_response(<span style=color:#ae81ff>400</span>, {<span style=color:#e6db74>&#34;error&#34;</span>: <span style=color:#e6db74>&#34;Missing file field&#34;</span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            b64_string <span style=color:#f92672>=</span> body[<span style=color:#e6db74>&#34;file&#34;</span>]
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;,&#34;</span> <span style=color:#f92672>in</span> b64_string:
+</span></span><span style=display:flex><span>                b64_string <span style=color:#f92672>=</span> b64_string<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;,&#34;</span>, <span style=color:#ae81ff>1</span>)[<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>                file_data <span style=color:#f92672>=</span> base64<span style=color:#f92672>.</span>b64decode(b64_string)
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span>:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> make_response(<span style=color:#ae81ff>400</span>, {<span style=color:#e6db74>&#34;error&#34;</span>: <span style=color:#e6db74>&#34;Invalid base64 file&#34;</span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            original_filename <span style=color:#f92672>=</span> clean_filename(body<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;filename&#34;</span>, <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;invoice_</span><span style=color:#e6db74>{</span>uuid<span style=color:#f92672>.</span>uuid4()<span style=color:#f92672>.</span>hex<span style=color:#e6db74>}</span><span style=color:#e6db74>.png&#34;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> is_allowed_file(original_filename):
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>return</span> make_response(<span style=color:#ae81ff>400</span>, {<span style=color:#e6db74>&#34;error&#34;</span>: <span style=color:#e6db74>&#34;Only PNG, JPG, JPEG or PDF are supported&#34;</span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># Thêm uuid để tránh ghi đè file cũ</span>
+</span></span><span style=display:flex><span>            key <span style=color:#f92672>=</span> <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{</span>UPLOAD_PREFIX<span style=color:#e6db74>}{</span>uuid<span style=color:#f92672>.</span>uuid4()<span style=color:#f92672>.</span>hex<span style=color:#e6db74>}</span><span style=color:#e6db74>_</span><span style=color:#e6db74>{</span>original_filename<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            s3<span style=color:#f92672>.</span>put_object(
+</span></span><span style=display:flex><span>                Bucket<span style=color:#f92672>=</span>BUCKET_NAME,
+</span></span><span style=display:flex><span>                Key<span style=color:#f92672>=</span>key,
+</span></span><span style=display:flex><span>                Body<span style=color:#f92672>=</span>file_data,
+</span></span><span style=display:flex><span>                ContentType<span style=color:#f92672>=</span>get_content_type(original_filename)
+</span></span><span style=display:flex><span>            )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;✅ Uploaded to s3://</span><span style=color:#e6db74>{</span>BUCKET_NAME<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>key<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># Không xử lý AI ngay trong upload request.</span>
+</span></span><span style=display:flex><span>            <span style=color:#75715e># S3 trigger sẽ gọi Lambda lần 2 để xử lý OCR + OpenAI.</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> make_response(<span style=color:#ae81ff>200</span>, {
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;message&#34;</span>: <span style=color:#e6db74>&#34;Upload successful. Processing will start from S3 trigger.&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;bucket&#34;</span>: BUCKET_NAME,
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;key&#34;</span>: key,
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;s3_path&#34;</span>: <span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;s3://</span><span style=color:#e6db74>{</span>BUCKET_NAME<span style=color:#e6db74>}</span><span style=color:#e6db74>/</span><span style=color:#e6db74>{</span>key<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>            })
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># ------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># CASE 2: S3 Trigger</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># ------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;Records&#34;</span> <span style=color:#f92672>in</span> event <span style=color:#f92672>and</span> event[<span style=color:#e6db74>&#34;Records&#34;</span>] <span style=color:#f92672>and</span> <span style=color:#e6db74>&#34;s3&#34;</span> <span style=color:#f92672>in</span> event[<span style=color:#e6db74>&#34;Records&#34;</span>][<span style=color:#ae81ff>0</span>]:
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;📦 S3 trigger records: </span><span style=color:#e6db74>{</span>len(event[<span style=color:#e6db74>&#39;Records&#39;</span>])<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            results <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> record <span style=color:#f92672>in</span> event[<span style=color:#e6db74>&#34;Records&#34;</span>]:
+</span></span><span style=display:flex><span>                event_name <span style=color:#f92672>=</span> record<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#34;eventName&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> event_name<span style=color:#f92672>.</span>startswith(<span style=color:#e6db74>&#34;ObjectCreated:&#34;</span>):
+</span></span><span style=display:flex><span>                    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;⏭️ Skip non-created event: </span><span style=color:#e6db74>{</span>event_name<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                bucket <span style=color:#f92672>=</span> record[<span style=color:#e6db74>&#34;s3&#34;</span>][<span style=color:#e6db74>&#34;bucket&#34;</span>][<span style=color:#e6db74>&#34;name&#34;</span>]
+</span></span><span style=display:flex><span>                raw_key <span style=color:#f92672>=</span> record[<span style=color:#e6db74>&#34;s3&#34;</span>][<span style=color:#e6db74>&#34;object&#34;</span>][<span style=color:#e6db74>&#34;key&#34;</span>]
+</span></span><span style=display:flex><span>                key <span style=color:#f92672>=</span> urllib<span style=color:#f92672>.</span>parse<span style=color:#f92672>.</span>unquote_plus(raw_key)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                result <span style=color:#f92672>=</span> process_s3_object(bucket, key)
+</span></span><span style=display:flex><span>                results<span style=color:#f92672>.</span>append(result)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> make_response(<span style=color:#ae81ff>200</span>, {
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;message&#34;</span>: <span style=color:#e6db74>&#34;S3 event processed&#34;</span>,
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#34;results&#34;</span>: results
+</span></span><span style=display:flex><span>            })
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> make_response(<span style=color:#ae81ff>400</span>, {<span style=color:#e6db74>&#34;error&#34;</span>: <span style=color:#e6db74>&#34;Invalid request format&#34;</span>})
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;❌ Fatal error:&#34;</span>, str(e))
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> make_response(<span style=color:#ae81ff>500</span>, {
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;error&#34;</span>: <span style=color:#e6db74>&#34;Internal Server Error&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;details&#34;</span>: str(e)
+</span></span><span style=display:flex><span>        })
+</span></span></code></pre></div><p><img alt="Paste Code" src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.2-uploadinvoicelambda/005-sourcecode.png></p><ol start=3><li>Nhấn <strong>Deploy</strong> để áp dụng thay đổi.</li></ol><p><img alt=Deploy src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.2-uploadinvoicelambda/006-deploy.png></p><hr><h4 id=bước-4-cấu-hình-timeout-và-memory>Bước 4: Cấu hình Timeout và Memory</h4><ol><li>Vào tab <strong>Configuration > General configuration</strong>.</li><li>Nhấn <strong>Edit</strong>.</li></ol><p><img alt=Deploy src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.2-uploadinvoicelambda/007-configuration.png></p><ol start=3><li><p>Thay đổi các thông số sau:</p><ul><li><strong>Memory (MB)</strong>: <code>1024</code></li><li><strong>Timeout</strong>: <code>1 minute</code></li></ul></li></ol><p><img alt="Edit Memory Timeout" src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.2-uploadinvoicelambda/008-configtimeout.png></p><ol start=4><li><strong>Configuration -> Environment variables</strong>, click <strong>Edit</strong>,</li></ol><p><img alt="Set Environment variables" src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.4-fetchinvoicelambda/010-more.png></p><ol start=5><li>Nhấn <strong>Save</strong>.</li></ol><p><img alt="Click Save" src=https://dykhang0122.github.io/Intership_report/images/3.lambdafunctions/3.2-uploadinvoicelambda/009-clicksave.png></p><hr><h4 id=kết-luận>Kết luận</h4><p>Bạn đã tạo thành công hàm Lambda đầu tiên trong hệ thống: <code>UploadInvoiceFileFunction</code>.</p><ul><li>Hàm này tiếp nhận các tệp hóa đơn từ giao diện người dùng (frontend) React thông qua API Gateway.</li><li>Nó giải mã nội dung tệp (định dạng Base64) và tải tệp lên thư mục <code>uploads/</code> trên Amazon S3.</li><li>Sau khi tệp được tải lên S3, một hàm Lambda xử lý tiếp theo có thể được kích hoạt để trích xuất dữ liệu hóa đơn bằng Amazon Textract, chuẩn hóa dữ liệu thông qua OpenAI API và lưu trữ kết quả vào DynamoDB.</li></ul><footer class=footline></footer></div></div><div id=navigation><a class="nav nav-prev" href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/3.1-createlambdarole/ title="Tạo IAM Role cho Lambda"><i class="fa fa-chevron-left"></i></a>
+<a class="nav nav-next" href=https://dykhang0122.github.io/Intership_report/vi/5-workshop/3-aipoweredinvoiceprocessing/3.3-testlambdafunction-upload/ title="Kiểm thử Lambda Function #1" style=margin-right:0><i class="fa fa-chevron-right"></i></a></div></section><div style=left:-1000px;overflow:scroll;position:absolute;top:-1000px;border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px><div style=border:none;box-sizing:content-box;height:200px;margin:0;padding:0;width:200px></div></div><script src=https://dykhang0122.github.io/Intership_report/js/clipboard.min.js?1784617450></script><script src=https://dykhang0122.github.io/Intership_report/js/perfect-scrollbar.min.js?1784617450></script><script src=https://dykhang0122.github.io/Intership_report/js/perfect-scrollbar.jquery.min.js?1784617450></script><script src=https://dykhang0122.github.io/Intership_report/js/jquery.sticky.js?1784617450></script><script src=https://dykhang0122.github.io/Intership_report/js/featherlight.min.js?1784617450></script><script src=https://dykhang0122.github.io/Intership_report/js/highlight.pack.js?1784617450></script><script>hljs.initHighlightingOnLoad()</script><script src=https://dykhang0122.github.io/Intership_report/js/modernizr.custom-3.6.0.js?1784617450></script><script src=https://dykhang0122.github.io/Intership_report/js/learn.js?1784617450></script><script src=https://dykhang0122.github.io/Intership_report/js/hugo-learn.js?1784617450></script><link href=https://dykhang0122.github.io/Intership_report/mermaid/mermaid.css?1784617450 rel=stylesheet><script src=https://dykhang0122.github.io/Intership_report/mermaid/mermaid.js?1784617450></script><script>mermaid.initialize({startOnLoad:!0})</script><script>(function(e,t,n,s,o,i,a){e.GoogleAnalyticsObject=o,(e[o]=e[o]||function(){(e[o].q=e[o].q||[]).push(arguments)},e[o].l=1*new Date),(i=t.createElement(n),a=t.getElementsByTagName(n)[0]),i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-158079754-2","auto"),ga("send","pageview")</script></body></html>
