@@ -9,25 +9,24 @@ pre: " <b> 1.7. </b> "
 
 ### Mục tiêu tuần 7:
 
-* Củng cố kiến thức EC2 và vai trò máy chủ ảo trong triển khai ứng dụng.
-* Thực hành tạo Amazon Linux EC2 với AMI, Instance Type, Key Pair phù hợp.
-* Cấu hình mạng (VPC, Subnet, Public IP, Security Group) và truy cập SSH an toàn.
+* Xây dựng kiến trúc Serverless Backend linh hoạt với các API RESTful và GraphQL kết hợp AWS Lambda và Amazon API Gateway.
+* Tìm hiểu lưu trữ đối tượng với Amazon S3 và mô hình cơ sở dữ liệu NoSQL hiệu năng cao Amazon DynamoDB cho ứng dụng cloud-native.
+* Thực hành giải pháp xác thực, ủy quyền người dùng an toàn bằng Amazon Cognito (User Pools & Identity Pools).
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 6 | - **Ôn tập 3-Tier:** Ôn tập EC2 trong kiến trúc 3-tier: web, app, database layer | 29/05/2026 | 29/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **So sánh chi phí:** So sánh On-Demand, Reserved, Spot instance về chi phí | 30/05/2026 | 30/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **Cấu hình khởi động:** User data script: bootstrap package khi launch instance | 31/05/2026 | 31/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **Thực hành EC2:** Launch Amazon Linux 2023, chọn AMI và Instance Type t2/t3 <br> - **Quản lý Key Pair:** Tạo và download Key Pair (.pem), set permission file <br> - **Quyền truy cập:** Gán IAM role cho EC2 (SSM, S3 read nếu cần) | 01/06/2026 | 01/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **Mạng cho EC2:** Cấu hình VPC/Subnet cho instance; Elastic IP vs auto public IP <br> - **Security Group:** Chỉ mở port cần thiết (22 restricted hoặc SSM-only) <br> - **Kiểm tra định tuyến:** Kiểm tra route table và NACL không chặn traffic hợp lệ | 02/06/2026 | 02/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **Lifecycle máy chủ:** Quản lý lifecycle trên Console: monitor, reboot, stop/start, terminate <br> - **Kiểm tra trạng thái:** Status check: system vs instance; xử lý khi fail <br> - **Lưu trữ EBS:** Gắn thêm EBS, mở rộng volume online (nếu hỗ trợ) | 03/06/2026 | 03/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **Truy cập từ xa:** SSH: `ssh -i key.pem ec2-user@ip`; cấu hình `~/.ssh/config` <br> - **Deploy ứng dụng:** Deploy ứng dụng demo (static site hoặc API nhỏ) lên EC2 <br> - **Checklist bảo mật:** Patch OS, firewall, không dùng root trực tiếp | 04/06/2026 | 04/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Tìm hiểu Serverless Services:** Học kiến trúc Serverless: AWS Lambda event-driven, Amazon API Gateway routing</li><li>- **Tạo Lambda Function:** Viết Lambda Function bằng Python (bằng thư viện `boto3`) xử lý request dữ liệu</li></ul> | 29/05/2026 | 29/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Xây dựng RESTful API:** Cấu hình API Gateway HTTP API / REST API, định nghĩa các route (GET, POST, PUT, DELETE)</li><li>- **Tích hợp Lambda:** Tích hợp API Gateway routes với Lambda proxy integration</li></ul> | 30/05/2026 | 30/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Nghiên cứu GraphQL API:** Tìm hiểu khái niệm GraphQL, so sánh REST API vs GraphQL</li><li>- **Triển khai GraphQL:** Cấu hình API Gateway / AWS AppSync tạo GraphQL Schema và Resolvers</li></ul> | 31/05/2026 | 31/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Thực hành Amazon S3:** Tạo S3 Bucket, cấu hình S3 Bucket Policy, CORS và quản lý lifecycle rule cho file tải lên</li><li>- **Thực hành DynamoDB:** Tạo DynamoDB Table (Partition Key, Sort Key, Secondary Indexes)</li></ul> | 01/06/2026 | 01/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Tích hợp Lambda với S3 & DynamoDB:** Viết mã Lambda đọc/ghi dữ liệu từ S3 và thực hiện thao tác CRUD trên DynamoDB</li><li>- **Cấu hình IAM Role:** Thiết lập IAM Role cho Lambda cấp quyền truy cập S3 và DynamoDB chuẩn Least Privilege</li></ul> | 02/06/2026 | 02/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Khởi tạo Amazon Cognito:** Khởi tạo Cognito User Pool (đăng ký, đăng nhập, xác minh email OTP)</li><li>- **Tạo Identity Pool:** Cấu hình Cognito Identity Pool cấp quyền truy cập AWS resources cho người dùng đăng nhập</li></ul> | 03/06/2026 | 03/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Tích hợp Authorizer:** Tích hợp Cognito JWT Authorizer vào API Gateway để bảo vệ các endpoints API</li><li>- **Kiểm thử & Tổng kết:** Dùng Postman kiểm thử đăng nhập, lấy JWT token và gọi API thành công</li></ul> | 04/06/2026 | 04/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 7:
 
-* Hiểu vai trò EC2 trong kiến trúc ứng dụng và các mô hình mua instance.
-* Tạo và cấu hình Amazon Linux EC2 với AMI, Instance Type, Key Pair, IAM role.
-* Thiết lập mạng VPC/Subnet/Public IP/Security Group đúng nguyên tắc least exposure.
-* Quản lý instance trên Console; truy cập SSH và triển khai ứng dụng demo thành công.
+* Xây dựng thành công hệ thống Serverless API hoàn chỉnh với Lambda và API Gateway phục vụ cả hai chuẩn RESTful và GraphQL.
+* Làm chủ kỹ năng quản lý lưu trữ dữ liệu không cấu trúc trên Amazon S3 và dữ liệu NoSQL tốc độ cao trên Amazon DynamoDB.
+* Triển khai hoàn chỉnh hệ thống xác thực người dùng bảo mật với Amazon Cognito JWT Authorizer bảo vệ API Endpoints.

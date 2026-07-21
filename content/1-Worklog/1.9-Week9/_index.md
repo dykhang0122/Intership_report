@@ -9,26 +9,24 @@ pre: " <b> 1.9. </b> "
 
 ### Week 9 Objectives:
 
-* Translate and study AWS blogs on Carbon Reporting, BYOL, and Sustainability.
-* Complete Project Proposal for AI Invoice Scanner.
-* Test features, design Draw.io architecture, and document on Notion.
-* Prepare IAM, S3, Lambda configuration evidence for the report.
+* Develop a fully automated end-to-end invoice processing pipeline: Upload invoice file to S3 -> Trigger Lambda function -> Call Amazon Textract for OCR text extraction -> Pass data to Amazon Bedrock to standardize JSON formatting -> Persist records into Amazon DynamoDB.
+* Design detailed overall system architecture diagrams and sequence diagrams illustrating data flows using Draw.io.
+* Author complete technical setup documentation, document IAM, S3, and Lambda configurations, and capture system proofs on Notion.
 
 ### Tasks to be carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 6 | - **AWS Blog Translation:** Translate AWS Carbon Reporting blog: workload carbon footprint metrics | 06/12/2026 | 06/12/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **BYOL Licensing:** BYOL on EC2/RDS; licensing implications | 06/13/2026 | 06/13/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **Sustainability:** Sustainability: Well-Architected pillar, right-sizing, Graviton | 06/14/2026 | 06/14/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **Project Proposal:** Write Project Proposal: context, goals, scope, architecture, timeline <br> - **Stack Definition:** List stack: S3, Textract, Lambda, Bedrock, DynamoDB, API Gateway, Cognito <br> - **Risk Management:** Identify risks and mitigation plan | 06/15/2026 | 06/15/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **Feature Testing:** Test invoice upload, field extraction, DynamoDB storage <br> - **Bug Resolution:** Fix Textract JSON parsing bugs; validate file type/size input <br> - **Edge Case Testing:** Edge cases: blurry invoices, multi-page, Vietnamese/English | 06/16/2026 | 06/16/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **Architecture Diagram:** Draw Draw.io architecture: data flow, trust boundaries, IAM roles <br> - **Sequence Flow:** Sequence diagram: upload → S3 → Lambda → Textract → Bedrock → DB <br> - **Assets Export:** Export PNG/SVG for report | 06/17/2026 | 06/17/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **Technical Documentation:** Write Notion technical docs: setup, deploy, env vars, API spec <br> - **Screenshots Capture:** Screenshot IAM policies, S3 bucket policy, Lambda triggers <br> - **Milestone Review:** Deliverable checklist before Data/QuickSight phase | 06/18/2026 | 06/18/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Fri | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **S3 Event Notification Setup:** Configure S3 bucket `invoice-upload-bucket` to emit object-created triggers for PDF/image uploads</li><li>- **IAM Execution Role Creation:** Create Lambda execution role granting `s3:GetObject`, `textract:AnalyzeDocument`, `bedrock:InvokeModel`, and `dynamodb:PutItem` permissions</li></ul> | 06/12/2026 | 06/12/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sat | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Lambda Textract Integration:** Write Python Lambda function using `boto3` invoking Amazon Textract `AnalyzeDocument` to extract key-value pairs (Vendor Name, Total Amount, Date, Tax)</li></ul> | 06/13/2026 | 06/13/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sun | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Lambda Bedrock Integration:** Invoke Amazon Bedrock (Anthropic Claude 3 / Titan models) to process and clean raw Textract output into structured JSON</li></ul> | 06/14/2026 | 06/14/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Mon | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **DynamoDB Persistence:** Write function logic persisting standardized JSON records into Amazon DynamoDB `InvoicesTable` with generated auto-uuids</li></ul> | 06/15/2026 | 06/15/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **End-to-End Pipeline Testing:** Upload sample invoices to S3, inspect CloudWatch Logs, and verify persisted items inside DynamoDB tables</li></ul> | 06/16/2026 | 06/16/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Wed | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Draw.io Architecture Diagramming:** Draft 3D Cloud System Architecture Diagrams and detailed Sequence Diagrams in Draw.io</li></ul> | 06/17/2026 | 06/17/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Notion Documentation:** Create project documentation on Notion: Upload screenshots of IAM Roles, S3 Events, Lambda code, DynamoDB items, and finalize Week 9 log</li></ul> | 06/18/2026 | 06/18/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 9 Achievements:
 
-* Translated and understood AWS blogs on Carbon Reporting, BYOL, and Sustainability.
-* Completed detailed Project Proposal for AI Invoice Scanner.
-* Tested and fixed core application workflows.
-* Produced Draw.io architecture, Notion documentation, and IAM/S3/Lambda screenshots.
+* Built a fully working automated serverless AI invoice processing pipeline (S3 -> Lambda -> Textract -> Bedrock -> DynamoDB).
+* Completed professional high-level system architecture diagrams and sequence diagrams in Draw.io.
+* Documented step-by-step setup guides, IAM/S3/Lambda configurations, and evidence screenshots on Notion.

@@ -9,26 +9,25 @@ pre: " <b> 1.1. </b> "
 
 ### Week 1 Objectives:
 
-* Get familiar with AWS, create an account, and understand core service groups (Compute, Storage, Networking, Database).
-* Practice access management with IAM, basic networking with VPC, and launching EC2 instances.
-* Learn cost tracking via Billing Dashboard and AWS support channels.
+* Register an AWS Free Tier account and familiarize with foundational service concepts (Compute, Storage, Networking, Database).
+* Practice account management, creating IAM Users, Groups, Policies, and applying permissions based on the Least Privilege principle.
+* Initialize AWS Budgets and Cost Explorer to manage budgets, monitor expenditures, and set up automated billing alerts.
 
 ### Tasks to be carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 6 | - **Account Registration:** AWS Free Tier account signup and activation <br> - **Introduction:** Regions and Availability Zones (AZ) | 04/17/2026 | 04/17/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **Responsibility Model:** Learn Shared Responsibility Model | 04/18/2026 | 04/18/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **Service Exploration:** Compute, Storage, Networking, Database services on Console | 04/19/2026 | 04/19/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **Console Navigation:** AWS Management Console: search services, view resource dashboards <br> - **CLI Configuration:** Install and configure AWS CLI (Access Key, Secret Key, default Region) <br> - **CLI Practice:** Run basic CLI commands: `aws sts get-caller-identity`, `aws ec2 describe-regions` | 04/20/2026 | 04/20/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **IAM Practice:** Create Users, Groups, JSON Policies; assign least-privilege permissions <br> - **Account Security:** Enable MFA for root/admin accounts <br> - **IAM Concepts:** Distinguish IAM Users, Roles, and Policies | 04/21/2026 | 04/21/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **VPC Practice:** Create VPC, Public/Private Subnets, CIDR blocks <br> - **EC2 Practice:** Select AMI, Instance Type, Key Pair; launch instance <br> - **Server Connection:** Connect via SSH; verify instance status on Console | 04/22/2026 | 04/22/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **Cost Management:** AWS Billing & Cost Management: Cost Explorer, Budgets, Free Tier usage <br> - **Technical Support:** Review AWS Support Plans (Basic, Developer, Business) <br> - **Weekly Summary:** Summarize Week 1 notes and review created resources | 04/23/2026 | 04/23/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Fri | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **AWS Account Registration:** Successfully sign up for AWS Free Tier and complete identity verification</li><li>- **Concept Study:** Learn Regions, Availability Zones (AZs), and AWS Global Infrastructure</li></ul> | 04/17/2026 | 04/17/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sat | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Console Exploration:** Explore the AWS Management Console and main service categories</li><li>- **AWS CLI Setup:** Install AWS CLI v2 and configure credentials (`aws configure`)</li></ul> | 04/18/2026 | 04/18/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sun | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **AWS CLI Practice:** Run CLI commands to check account details: `aws sts get-caller-identity`, `aws s3 ls`</li></ul> | 04/19/2026 | 04/19/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Mon | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **IAM Security:** Enable Multi-Factor Authentication (MFA) on the Root Account</li><li>- **IAM Users & Groups:** Create IAM Users and assign them to IAM Groups based on roles</li></ul> | 04/20/2026 | 04/20/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Authoring IAM Policies:** Write JSON-formatted IAM Policies following Least Privilege</li><li>- **IAM Roles Concept:** Distinguish between IAM Users, Groups, Roles, and Policies</li></ul> | 04/21/2026 | 04/21/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Wed | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **AWS Budgets Configuration:** Set up AWS Budgets alerts when costs exceed a $5 threshold</li><li>- **Cost Explorer Activation:** Enable AWS Cost Explorer to track daily spending charts</li></ul> | 04/22/2026 | 04/22/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Review & Evaluation:** Audit created cloud resources, review cost logs, and compile Week 1 report</li></ul> | 04/23/2026 | 04/23/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 1 Achievements:
 
-* Created and verified AWS Free Tier account; understood Regions/AZs and Shared Responsibility Model.
-* Used AWS Console and CLI proficiently for basic lookup and configuration tasks.
-* Set up IAM Users, Groups, Policies with least privilege and enabled MFA.
-* Created VPC, Subnets; launched EC2 instances with SSH and Key Pair management.
-* Learned cost monitoring via Billing Dashboard and AWS documentation/support channels.
+* Successfully created AWS Free Tier account and understood global cloud infrastructure (Regions & Availability Zones).
+* Gained strong comprehension of AWS core service groups and became proficient using both AWS Console and AWS CLI.
+* Implemented IAM security best practices: enabled root MFA, structured user groups, and wrote Least Privilege policies.
+* Configured automated billing alerts via AWS Budgets and tracked real-time expenses using Cost Explorer.

@@ -9,25 +9,25 @@ pre: " <b> 1.2. </b> "
 
 ### Week 2 Objectives:
 
-* Deepen understanding of Amazon VPC and layered network design on AWS.
-* Practice Subnets, Route Tables, Internet Gateway, NAT Gateway, and VPN Site-to-Site.
-* Configure Security Groups, Network ACLs, and validate traffic flow between network tiers.
+* Gain deep understanding of AWS VPC networking, CIDR block allocation, Public/Private Subnet creation, and Route Table partitioning.
+* Practice setting up Internet Gateway (IGW), NAT Gateway for private networks, and simulating Site-to-Site VPN connectivity.
+* Configure multi-layered network security controls using Security Groups (stateful) and Network ACLs (stateless).
 
 ### Tasks to be carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 6 | - **VPC Concepts:** Learn Amazon VPC: CIDR, Public/Private Subnets, route propagation | 04/24/2026 | 04/24/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **Network Models:** Compare hub-spoke and multi-tier network models on AWS | 04/25/2026 | 04/25/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **Network Design:** Sketch reference network architecture for lab | 04/26/2026 | 04/26/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **VPC Practice:** Create VPC, split Public/Private Subnets across AZs <br> - **Route Configuration:** Configure Route Tables; attach Internet Gateway to Public Subnet <br> - **Connectivity Check:** Verify routing and connectivity from public EC2 | 04/27/2026 | 04/27/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **NAT Gateway Practice:** Allow Private Subnet outbound Internet safely <br> - **NAT Configuration:** Configure `0.0.0.0/0` route via NAT on private route table <br> - **NAT Testing:** Test outbound connection from Private Subnet instance | 04/28/2026 | 04/28/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **VPN Site-to-Site:** Virtual Private Gateway, Customer Gateway, VPN connection <br> - **IPSec Tunneling:** Set up IPSec tunnel between on-premises (simulated) and VPC <br> - **VPN Testing:** Check tunnel status and related route tables | 04/29/2026 | 04/29/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **Network Security:** Configure Security Groups (stateful) and Network ACLs (stateless) <br> - **Firewall Comparison:** Compare inbound/outbound rules and NACL rule order <br> - **Traffic Analysis:** Test and document allowed/denied traffic flows | 04/30/2026 | 04/30/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Fri | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **VPC Research:** Study Amazon VPC fundamentals, CIDR blocks, Private IP, and Public IP design</li><li>- **Network Diagram:** Draw a VPC architecture diagram spanning 2 Availability Zones</li></ul> | 04/24/2026 | 04/24/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sat | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **VPC & Subnet Creation:** Launch Custom VPC (`10.0.0.0/16`), create Public and Private Subnets across AZs</li><li>- **Route Table Setup:** Create separate Public and Private Route Tables</li></ul> | 04/25/2026 | 04/25/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sun | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Internet Gateway Setup:** Create and attach an Internet Gateway (IGW) to the Custom VPC</li><li>- **Public Routing:** Add route `0.0.0.0/0` pointing to IGW in the Public Route Table</li></ul> | 04/26/2026 | 04/26/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Mon | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **NAT Gateway Setup:** Allocate Elastic IP (EIP) and create NAT Gateway inside the Public Subnet</li><li>- **Private Routing:** Configure Private Route Table to allow Private Subnet instances to access outbound Internet via NAT Gateway</li></ul> | 04/27/2026 | 04/27/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **VPN Architecture Study:** Learn Site-to-Site VPN, Virtual Private Gateway (VGW), and Customer Gateway (CGW)</li><li>- **VPN Simulation:** Configure Virtual Private Gateway and set up IPSec tunnels connecting enterprise networks with VPC</li></ul> | 04/28/2026 | 04/28/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Wed | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Security Group Practice:** Configure stateful Security Groups for Web Servers (open ports 80, 443, 22)</li><li>- **Network ACL Practice:** Configure stateless Network ACLs at the Subnet boundary with rule number priorities</li></ul> | 04/29/2026 | 04/29/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Testing & Audit:** Launch test EC2 instances in both subnets, verify ping, SSH, HTTP connectivity, and audit firewall rules</li></ul> | 04/30/2026 | 04/30/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 2 Achievements:
 
-* Understood VPC architecture and roles of Subnets, Route Tables, IGW, and NAT Gateway.
-* Deployed Public/Private tiered network; private instances reach Internet via NAT.
-* Set up VPN Site-to-Site and understood on-premises-to-VPC routing.
-* Configured Security Groups vs Network ACLs effectively for traffic control.
+* Mastered VPC architecture concepts, successfully designing and building a multi-tier Public/Private Subnet topology.
+* Configured complete network routing: Public Subnet reaches Internet via IGW, Private Subnet connects outbound securely via NAT Gateway.
+* Understood Site-to-Site VPN operations and hybrid network integration between On-Premises data centers and AWS Cloud.
+* Clearly distinguished stateful Security Groups (instance-level) vs stateless Network ACLs (subnet-level) to enforce strict network security.

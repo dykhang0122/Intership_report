@@ -9,26 +9,24 @@ pre: " <b> 1.8. </b> "
 
 ### Week 8 Objectives:
 
-* Research Amazon Bedrock and RAG (Retrieval-Augmented Generation).
-* Analyze AWS/AI documentation; propose AI Invoice Scanner final project architecture.
-* Integrate Textract + S3; Lambda combining Textract and Bedrock; store in DynamoDB.
-* Test end-to-end invoice processing pipeline.
+* Explore Generative AI fundamentals on AWS featuring Amazon Bedrock, RAG (Retrieval-Augmented Generation) patterns, and Amazon Textract document extraction.
+* Author and refine the formal Project Proposal document for the capstone internship project: **AI Invoice Scanner** (Automated invoice processing pipeline).
+* Study and translate in-depth technical blogs focused on cloud sustainability (AWS Customer Carbon Footprint Tool, BYOL licensing models).
 
 ### Tasks to be carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 6 | - **Amazon Bedrock:** Amazon Bedrock: foundation models, inference, basic prompt engineering | 06/05/2026 | 06/05/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
-| 7 | - **RAG Architecture:** RAG: embeddings, vector store, retrieve context before generation | 06/06/2026 | 06/06/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
-| CN | - **AI Documentation:** Read and summarize AWS Generative AI technical docs | 06/07/2026 | 06/07/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
-| 2 | - **Requirement Analysis:** Analyze final project requirements: upload invoice → extract → store → query <br> - **Architecture Design:** Draw high-level architecture: S3, Textract, Lambda, Bedrock, DynamoDB <br> - **Project Backlog:** List user stories and acceptance criteria | 06/08/2026 | 06/08/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
-| 3 | - **Textract Processing:** S3 put event trigger; call `DetectDocumentText` / `AnalyzeExpense` <br> - **Raw Storage:** Store raw Textract JSON in S3 prefix or pass to processing Lambda <br> - **Input Verification:** Test with sample invoice PDF/images | 06/09/2026 | 06/09/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
-| 4 | - **Lambda Logic:** Lambda: parse Textract output, normalize fields (vendor, date, amount, line items) <br> - **Bedrock Integration:** Invoke Bedrock model to enrich/classify/summarize if needed <br> - **Robustness:** Error handling, timeout, DLQ for failed messages | 06/10/2026 | 06/10/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
-| 5 | - **DynamoDB Design:** DynamoDB: design invoice table (PK invoiceId, GSI by user/date) <br> - **API Development:** Lambda writes metadata; API GET list/detail (Lambda + API Gateway) <br> - **End-to-End Test:** Integration test full pipeline: upload → extract → store → query | 06/11/2026 | 06/11/2026 | <https://cloudjourney.awsstudygroup.com/7-ai-ml-service-on-aws/> |
+| Fri | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Amazon Bedrock Research:** Learn Foundation Models (Claude 3, Titan) available on Amazon Bedrock</li><li>- **RAG Architecture Study:** Study Retrieval-Augmented Generation workflows integrating Vector Databases and Knowledge Bases</li></ul> | 06/05/2026 | 06/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sat | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Amazon Textract Exploration:** Study `DetectDocumentText` and `AnalyzeDocument` APIs (Form & Table extraction)</li><li>- **Textract Console Testing:** Upload PDF/JPEG invoice samples to the Textract Console to evaluate extraction accuracy</li></ul> | 06/06/2026 | 06/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sun | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **AI Invoice Scanner Concept:** Define project goals, business problem statement, and scope for the AI Invoice Scanner</li><li>- **Functional Requirements:** Detail core functional components (upload, OCR, AI parsing, database storage, dashboard)</li></ul> | 06/07/2026 | 06/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Mon | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Author Proposal Document:** Draft detailed Proposal document: Executive summary, proposed architecture diagram (S3, Lambda, Textract, Bedrock, DynamoDB, QuickSight)</li><li>- **Implementation Timeline:** Build project milestone schedule</li></ul> | 06/08/2026 | 06/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **AWS Carbon Footprint Study:** Read and translate technical paper on AWS Customer Carbon Footprint Tool for measuring cloud carbon emissions</li></ul> | 06/09/2026 | 06/09/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Wed | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **BYOL & Sustainability Study:** Translate blog posts on Bring Your Own License (BYOL) policies and hardware energy efficiency with AWS Graviton processors</li></ul> | 06/10/2026 | 06/10/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Document Formatting & Review:** Format translated blogs, conduct technical review of the Proposal document, and submit Week 8 log</li></ul> | 06/11/2026 | 06/11/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 8 Achievements:
 
-* Understood Bedrock, RAG, and application to document processing use cases.
-* Completed analysis and proposed architecture for AI Invoice Scanner project.
-* Integrated Textract with S3 trigger for automatic invoice data extraction.
-* Built Lambda pipeline with Textract, Bedrock, and DynamoDB; end-to-end test passed.
+* Acquired deep understanding of Generative AI principles with Amazon Bedrock, RAG patterns, and automated OCR text extraction via Amazon Textract.
+* Completed professional Project Proposal documentation for the capstone AI Invoice Scanner system.
+* Translated and synthesized technical cloud sustainability literature covering AWS Carbon Footprint, BYOL, and Graviton efficiency.

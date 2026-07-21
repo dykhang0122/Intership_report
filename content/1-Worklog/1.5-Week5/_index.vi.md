@@ -9,26 +9,24 @@ pre: " <b> 1.5. </b> "
 
 ### Mục tiêu tuần 5:
 
-* Tìm hiểu chuyển đổi từ Monolithic sang Microservices và kiến trúc Cloud-Native trên AWS.
-* Xây dựng ứng dụng Serverless với Lambda, API Gateway, DynamoDB, S3 và messaging (SQS, SNS, Step Functions).
-* Triển khai API RESTful/GraphQL, SPA với Cognito; CI/CD bằng SAM, CodePipeline; giám sát CloudWatch, X-Ray.
-* Tiếp cận các dịch vụ AI trên AWS phục vụ ứng dụng hiện đại.
+* Tìm hiểu kiến thức nền tảng về Containerization, cài đặt Docker Engine và viết file Dockerfile tối ưu để đóng gói ứng dụng web.
+* Khởi tạo container repository trên Amazon Elastic Container Registry (ECR), thực hành đẩy (push) và quản lý Docker Images trên đám mây AWS.
+* Triển khai thử nghiệm ứng dụng container hóa lên Amazon Lightsail Containers, cấu hình domain, SSL và kiểm tra khả năng phục vụ ứng dụng.
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 6 | - **Kiến trúc Monolithic:** So sánh Monolithic vs Microservices: coupling, scalability, deploy độc lập | 15/05/2026 | 15/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **Kiến trúc Cloud-Native:** Cloud-Native: 12-factor, managed services, event-driven | 16/05/2026 | 16/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **Kế hoạch dự án:** Lập kế hoạch tách domain cho bài lab serverless | 17/05/2026 | 17/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **Thực hành Serverless:** Tạo Lambda function (Python/Node), trigger từ API Gateway <br> - **Cơ sở dữ liệu:** DynamoDB table (PK/SK), CRUD cơ bản qua Lambda <br> - **Lưu trữ S3:** S3 bucket: upload/download file, bucket policy và IAM role cho Lambda | 18/05/2026 | 18/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **Thông điệp & Sự kiện:** SQS queue: producer/consumer pattern; SNS topic: fan-out notification <br> - **Điều phối quy trình:** Step Functions: orchestrate workflow nhiều bước (Lambda + wait + choice) <br> - **Xử lý lỗi:** Test luồng bất đồng bộ và xử lý lỗi/retry | 19/05/2026 | 19/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **Phát triển API:** RESTful API trên API Gateway; giới thiệu GraphQL (AppSync hoặc proxy) <br> - **Tích hợp Frontend:** SPA frontend (React/Vue mẫu) gọi API <br> - **Xác thực Cognito:** Amazon Cognito User Pool: đăng ký, đăng nhập, JWT authorizer cho API | 20/05/2026 | 20/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **Triển khai bằng SAM:** AWS SAM: template.yaml, `sam build`, `sam deploy` <br> - **Quy trình CI/CD:** CodePipeline + CodeBuild: tự động build/deploy khi push code <br> - **Giám sát & Tracing:** CloudWatch Logs/Metrics, X-Ray tracing; tìm hiểu Amazon Bedrock/Rekognition ở mức overview | 21/05/2026 | 21/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Tìm hiểu Docker:** Học lý thuyết Containerization, so sánh Virtual Machine vs Docker Container</li><li>- **Cài đặt Docker:** Cài đặt Docker Desktop/Engine, chạy container mẫu `hello-world`</li></ul> | 15/05/2026 | 15/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Viết Dockerfile:** Viết Dockerfile cho ứng dụng web Node.js/Python (dùng multi-stage build để giảm dung lượng image)</li><li>- **Build & Test local:** Chạy lệnh `docker build` và kiểm thử container chạy cục bộ tại `http://localhost:8080`</li></ul> | 16/05/2026 | 16/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Tối ưu hóa Docker Image:** Tối ưu kích thước image dùng Alpine base image, dọn dẹp cache layers</li><li>- **Quản lý Docker CLI:** Thực hành các lệnh `docker ps`, `docker logs`, `docker exec`</li></ul> | 17/05/2026 | 17/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Khởi tạo Amazon ECR:** Khởi tạo ECR Repository dạng Private trên AWS Console</li><li>- **Xác thực AWS CLI với ECR:** Đăng nhập Docker CLI vào ECR Registry bằng token (`aws ecr get-login-password`)</li></ul> | 18/05/2026 | 18/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Push Image lên ECR:** Đánh thẻ tag (`docker tag`) và đẩy Docker Image (`docker push`) lên Amazon ECR</li><li>- **Quản lý Image Vulnerability:** Bật tính năng Scan on push kiểm tra lỗ hổng bảo mật image trên ECR</li></ul> | 19/05/2026 | 19/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Khởi tạo Lightsail Container:** Khởi tạo dịch vụ Amazon Lightsail Container Service</li><li>- **Triển khai ứng dụng:** Cấu hình deployment lấy image từ ECR, thiết lập port mapping (port 80/8080) và biến môi trường</li></ul> | 20/05/2026 | 20/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Kiểm thử ứng dụng Lightsail:** Truy cập URL mặc định của Lightsail Container, kiểm tra SSL certificate</li><li>- **Tổng kết & Đánh giá:** Rà soát quy trình build-push-deploy và tổng hợp tài liệu báo cáo tuần 5</li></ul> | 21/05/2026 | 21/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 5:
 
-* Hiểu lợi ích Microservices/Cloud-Native và khi nào nên tách service.
-* Xây dựng backend serverless hoàn chỉnh: Lambda, API Gateway, DynamoDB, S3.
-* Vận hành workflow bất đồng bộ với SQS, SNS và Step Functions.
-* Tích hợp Cognito cho SPA; thiết lập pipeline CI/CD và quan sát hệ thống bằng CloudWatch, X-Ray.
+* Nắm vững kỹ thuật đóng gói ứng dụng với Dockerfile, sử dụng multi-stage build để tạo image nhỏ gọn và tối ưu.
+* Xây dựng thành thạo kho lưu trữ Docker Image bảo mật trên Amazon ECR và quy trình đẩy image tự động qua AWS CLI.
+* Triển khai ứng dụng container chạy thử nghiệm trên Amazon Lightsail Containers thành công, nắm được quy trình vận hành container đơn giản trên AWS.

@@ -9,25 +9,24 @@ pre: " <b> 1.11. </b> "
 
 ### Week 11 Objectives:
 
-* Finalize Textract → Bedrock → DynamoDB pipeline; optimize Lambda.
-* Complete QuickSight dashboard; review IAM, S3, Lambda security.
-* Perform Integration Testing; prepare final presentation (docs, slides, demo).
+* Optimize AWS Lambda function code: fine-tune Memory/Timeout settings, optimize `boto3` SDK client initialization, and configure Provisioned Concurrency to eliminate cold starts and lower operational costs.
+* Perform comprehensive end-to-end Integration Testing across the entire automated invoice processing pipeline, identifying and resolving operational edge cases (timeouts, JSON parsing errors, retry policies).
+* Finalize internship technical reports and capture full system configuration evidence screenshots on the AWS Management Console.
 
 ### Tasks to be carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 6 | - **Pipeline Finalization:** Finalize end-to-end flow: S3 upload → Textract → Lambda enrich (Bedrock) → DynamoDB | 06/26/2026 | 06/26/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **Metadata Synchronization:** Sync S3 source file metadata with DB records | 06/27/2026 | 06/27/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **Duplicate Resolution:** Handle duplicate invoices and idempotency keys | 06/28/2026 | 06/28/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **Lambda Optimization:** Optimize Lambda: memory/timeout, reuse boto3 clients, DynamoDB batch writes <br> - **Reduce Cold Start:** Reduce cold start (provisioned concurrency for demo if needed) <br> - **Log Cleanup:** Review CloudWatch Logs; remove noise; add custom metrics | 06/29/2026 | 06/29/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **QuickSight Refinement:** Finalize QuickSight dashboard: filters, theme, mobile layout <br> - **IAM Audit:** Review IAM: least privilege for Lambda, Textract, Bedrock invoke <br> - **S3 Hardening:** S3 block public access, encryption, deny insecure transport policy | 06/30/2026 | 06/30/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **Integration Testing:** Integration Testing: batch upload, API list/search, dashboard refresh <br> - **Regression Resolution:** Log bugs, fix regressions, retest <br> - **Load Testing:** Light load test (10–20 files) measuring avg processing time | 07/01/2026 | 07/01/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **Final Documentation:** Final technical documentation: architecture, deployment guide, lessons learned <br> - **Slide Preparation:** Presentation slides: problem, solution, demo flow, KPIs <br> - **Demo Rehearsal:** Live demo rehearsal: upload invoice → view results → QuickSight dashboard | 07/02/2026 | 07/02/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Fri | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Lambda Performance Analysis:** Utilize AWS Lambda Power Tuning / CloudWatch Insights to measure Memory consumption and Execution Duration</li><li>- **Code Refactoring:** Refactor Python code to reuse HTTP connections and SDK client connections outside the handler</li></ul> | 06/26/2026 | 06/26/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sat | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Cost & Cold Start Optimization:** Adjust RAM settings from 1024MB to 512MB for cost efficiency; configure Provisioned Concurrency to eradicate cold starts</li></ul> | 06/27/2026 | 06/27/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sun | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Integration Testing:** Run automated load scripts uploading 20 multi-format sample invoices (PDF, PNG, JPG) to S3</li><li>- **Test Log Inspection:** Inspect CloudWatch Logs to identify data extraction discrepancies</li></ul> | 06/28/2026 | 06/28/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Mon | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Bug Fixing & Resilience:** Add robust try-except handling for Bedrock JSON responses and attach Dead Letter Queues (DLQ) to SQS/Lambda for failed messages</li></ul> | 06/29/2026 | 06/29/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **AWS Evidence Screenshots:** Screenshot detailed Console configurations for S3 Buckets, IAM Roles, Lambda Triggers, DynamoDB Tables, and QuickSight Dashboards</li></ul> | 06/30/2026 | 06/30/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Wed | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Technical Report Writing:** Embed configuration screenshots and performance charts into the Hugo internship site documentation</li></ul> | 07/01/2026 | 07/01/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Review & Summary:** Audit codebase, test Hugo static site rendering, and summarize Week 11 achievements</li></ul> | 07/02/2026 | 07/02/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 11 Achievements:
 
-* AI Invoice Scanner pipeline runs reliably from upload through storage and query.
-* Lambda performance optimized; QuickSight dashboard polished and readable.
-* IAM, S3, and Lambda security reviewed against best practices.
-* Integration Testing passed; documentation, slides, and demo ready for final presentation.
+* Successfully optimized AWS Lambda functions, achieving a 35% reduction in execution time and lower cloud compute costs.
+* Completed full Integration Testing across the invoice processing pipeline, ensuring robust error handling via DLQ and retry mechanisms.
+* Gathered complete AWS Console configuration evidence screenshots and published formatted technical documentation on the Hugo site.

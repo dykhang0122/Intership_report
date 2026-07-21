@@ -9,25 +9,25 @@ pre: " <b> 1.3. </b> "
 
 ### Week 3 Objectives:
 
-* Master Amazon EC2 components: Instance Type, AMI, Key Pair, EBS, snapshots/backups.
-* Practice creating VMs, attaching volumes, managing storage, and secure connectivity.
-* Understand how to choose EC2 configuration for workload and cost.
+* Learn Amazon EC2 details, Instance Types (t3.micro, c5, r5, etc.), Amazon Machine Images (AMI), and SSH Key Pair management.
+* Launch EC2 Linux virtual machines, configure Elastic Block Store (EBS) volumes, build EBS Snapshots, and automate backups.
+* Install, configure, and maintain a basic Web Server (Nginx) on an EC2 instance and test public web accessibility.
 
 ### Tasks to be carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 6 | - **EC2 Concepts:** Learn EC2 Instance Families (t, m, c, r…), vCPU, RAM, network performance | 05/01/2026 | 05/01/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **AMI Concepts:** Learn AMI: Amazon Linux, Ubuntu; custom AMI lifecycle | 05/02/2026 | 05/02/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **Key Pair Concepts:** Learn Key Pair: creation, storage, SSH/RDP usage | 05/03/2026 | 05/03/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **EBS Storage:** Learn EBS: gp3, io2, st1; root vs additional volumes <br> - **Backup Strategy:** Learn Snapshots, AMIs from snapshots; backup strategies <br> - **Storage Comparison:** Compare EBS vs Instance Store | 05/04/2026 | 05/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **EC2 Practice:** Launch Amazon Linux EC2, choose Instance Type and Security Group <br> - **IP Address:** Attach Elastic IP if needed; verify public/private IPs <br> - **Initial Setup:** SSH connect, update OS, install basic packages | 05/05/2026 | 05/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **EBS Practice:** Create EBS volume, attach/detach, format and mount filesystem <br> - **Snapshot Practice:** Create volume snapshots; restore from snapshot to new volume/instance <br> - **Backup Procedure:** Document backup procedure before config changes | 05/06/2026 | 05/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **SSH Security:** Manage Key Pairs and SSH hardening (disable password login, restrict SG) <br> - **EC2 Monitoring:** Monitor instances on Console: CPU, status checks, reboot/stop/start <br> - **Cost Optimization:** Summarize Instance Type selection and EC2 cost best practices | 05/07/2026 | 05/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Fri | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Amazon EC2 Theory:** Study EC2 architecture, Instance Types, and EC2 Lifecycle (Launch, Stop, Terminate, Reboot)</li><li>- **AMI Types:** Understand Amazon Machine Images (Quick Start AMIs, Custom AMIs, Marketplace AMIs)</li></ul> | 05/01/2026 | 05/01/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sat | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **SSH Key Pair Setup:** Generate secure `.pem` Key Pairs for SSH access</li><li>- **EC2 Launch:** Launch Amazon Linux 2023 EC2 instance (`t3.micro`), assigning Public IP and Security Group</li></ul> | 05/02/2026 | 05/02/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sun | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **SSH Connection:** Connect to EC2 Linux instance via SSH client (`ssh -i key.pem ec2-user@public-ip`)</li><li>- **System Updates:** Update system packages (`sudo dnf update -y`)</li></ul> | 05/03/2026 | 05/03/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Mon | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **EBS Volume Management:** Explore EBS volume types (gp3, io2, st1) and create additional EBS volumes</li><li>- **Disk Partitioning & Mount:** Practice `fdisk`, format filesystem (ext4/xfs), and mount new volume to `/data`</li></ul> | 05/04/2026 | 05/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **EBS Snapshots:** Create manual EBS volume snapshots for backup</li><li>- **AWS Backup Configuration:** Set up automated AWS Backup Plans for EBS volumes and build custom AMIs</li></ul> | 05/05/2026 | 05/05/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Wed | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Nginx Installation:** Install Nginx Web Server on EC2 Linux (`sudo dnf install nginx -y`)</li><li>- **Web Server Setup:** Write customized `index.html`, start Nginx service, and enable startup auto-run</li></ul> | 05/06/2026 | 05/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Web Testing:** Open HTTP port (80) in Security Group and verify web access via browser</li><li>- **Review & Audit:** Audit EBS storage usage, backup routines, and document Week 3 achievements</li></ul> | 05/07/2026 | 05/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 3 Achievements:
 
-* Understood Instance Types, AMIs, Key Pairs, and workload-appropriate EC2 selection.
-* Created EC2 instances, attached EBS, snapshots, and restored data from backups.
-* Set up secure SSH access and managed instance lifecycle on Console.
-* Learned EBS/AMI backup strategies and storage cost optimization.
+* Developed clear criteria for selecting EC2 Instance Types and AMIs matched to workload requirements.
+* Launched and mastered EC2 Amazon Linux 2023 instances with secure SSH authentication using Key Pairs.
+* Proficient in EBS storage management: partitioning, formatting, directory mounting, and automated Snapshot/Backup scheduling.
+* Successfully transformed an EC2 Linux virtual machine into an active Nginx Web Server accessible over HTTP.

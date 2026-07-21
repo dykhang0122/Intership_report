@@ -9,26 +9,25 @@ pre: " <b> 1.4. </b> "
 
 ### Week 4 Objectives:
 
-* Connect VPC with Visual Studio Code, verify connectivity, and deploy apps on EC2.
-* Use Reachability Analyzer to evaluate network connectivity paths.
-* Set up EC2 Instance Connect Endpoint and SSM Session Manager instead of direct SSH.
-* Configure CloudWatch Monitoring & Alerting.
+* Integrate VS Code development environment with EC2 via Remote - SSH and analyze network paths using AWS VPC Reachability Analyzer.
+* Eliminate public SSH port (port 22) exposure by adopting EC2 Instance Connect Endpoint (EICE) and AWS Systems Manager (SSM) Session Manager for zero-trust remote access.
+* Deploy CloudWatch Agent to monitor OS metrics (RAM, Disk space, CPU) and establish automated alert mechanisms via CloudWatch Alarms.
 
 ### Tasks to be carried out this week:
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 6 | - **Environment Setup:** Connect dev environment (VS Code) to VPC resources | 05/08/2026 | 05/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **Network Testing:** Test ping/traceroute; verify Security Groups and routes | 05/09/2026 | 05/09/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **EC2 Basics:** Basic EC2 practice: deploy files, run test services | 05/10/2026 | 05/10/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **Application Server:** Turn blank EC2 into application server: install web server/runtime, deploy sample app <br> - **Network Path Analysis:** VPC Reachability Analyzer: path analysis between source and destination <br> - **Network Troubleshooting:** Analyze blocked/reachable results and fix network config | 05/11/2026 | 05/11/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **Secure Connection:** EC2 Instance Connect Endpoint for private instances <br> - **Server Administration:** SSM Session Manager: IAM role, SSM Agent, no public port 22 <br> - **Shell Access:** Access shell via Console/CLI; compare with traditional SSH | 05/12/2026 | 05/12/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **CloudWatch Monitoring:** CloudWatch: EC2 metrics (CPU, network), custom metrics, log groups <br> - **Automated Alerting:** Build monitoring dashboard and CloudWatch Alarms (email/SNS) <br> - **Threshold Setup:** Set thresholds for high CPU or failed status checks | 05/13/2026 | 05/13/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **System Verification:** End-to-end check: app running, Session Manager working, alarms triggering correctly <br> - **Ops & Security:** Document ops runbook and Week 4 security checklist <br> - **Resource Optimization:** Clean up unnecessary test resources | 05/14/2026 | 05/14/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Fri | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **VS Code Remote SSH Setup:** Configure `~/.ssh/config` file to establish direct remote development connections to EC2</li><li>- **Remote Editing:** Edit web source files directly on the remote EC2 host</li></ul> | 05/08/2026 | 05/08/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sat | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Reachability Analyzer Overview:** Explore AWS VPC Reachability Analyzer capabilities</li><li>- **Network Path Analysis:** Create Analysis Paths from Internet Gateway/Subnet to EC2 to check connectivity blockages</li></ul> | 05/09/2026 | 05/09/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Sun | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Troubleshooting Simulation:** Simulate blocked ports in SG/NACL and use Reachability Analyzer to pinpoint exact network hops causing failure</li></ul> | 05/10/2026 | 05/10/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Mon | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **SSM Session Manager Setup:** Attach `AmazonSSMManagedInstanceCore` IAM Policy to EC2 IAM Role</li><li>- **Secure Shell access:** Open browser/CLI shell connections via SSM Session Manager without inbound SSH port 22</li></ul> | 05/11/2026 | 05/11/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Tue | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **EC2 Instance Connect Endpoint:** Provision EICE in private subnets</li><li>- **Private SSH Tunneling:** Tunnel SSH access to private instances lacking Public IPs via EICE</li></ul> | 05/12/2026 | 05/12/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Wed | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **CloudWatch Agent Installation:** Install `amazon-cloudwatch-agent` on Linux EC2</li><li>- **Agent JSON Config:** Configure custom JSON parameters to collect RAM (`mem_used_percent`) and Disk usage (`disk_used_percent`)</li></ul> | 05/13/2026 | 05/13/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| Thu | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **CloudWatch Alarms Creation:** Set up SNS email alert notifications when CPU > 80% or RAM > 85%</li><li>- **Review & Audit:** Trigger simulated high workload and document Week 4 achievements</li></ul> | 05/14/2026 | 05/14/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 4 Achievements:
 
-* Connected VPC with VS Code and deployed sample application on EC2.
-* Used Reachability Analyzer to diagnose and fix connectivity issues.
-* Accessed instances securely via EC2 Instance Connect Endpoint and SSM Session Manager.
-* Set up CloudWatch dashboards and alarms for proactive system monitoring.
+* Established modern cloud development environment using VS Code Remote SSH for seamless remote code editing.
+* Mastered VPC Reachability Analyzer tool for rapid network diagnosis and routing path validation.
+* Enhanced server security posture by disabling open public SSH port 22 and leveraging SSM Session Manager & EC2 Instance Connect Endpoint.
+* Deployed end-to-end OS resource monitoring using CloudWatch Agent alongside automated SNS email notifications for high resource usage.

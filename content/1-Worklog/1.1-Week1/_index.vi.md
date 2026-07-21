@@ -9,26 +9,25 @@ pre: " <b> 1.1. </b> "
 
 ### Mục tiêu tuần 1:
 
-* Làm quen môi trường AWS, tạo tài khoản và nắm các nhóm dịch vụ nền tảng (Compute, Storage, Networking, Database).
-* Thực hành quản lý truy cập với IAM, thiết lập mạng cơ bản với VPC và khởi tạo máy chủ ảo EC2.
-* Tìm hiểu cách theo dõi chi phí, sử dụng Billing Dashboard và các kênh hỗ trợ của AWS.
+* Đăng ký tài khoản AWS Free Tier và làm quen với các khái niệm dịch vụ nền tảng (Compute, Storage, Networking, Database).
+* Thực hành quản lý tài khoản, tạo IAM User, Group, Policy và thiết lập phân quyền theo nguyên tắc Least Privilege (quyền tối thiểu).
+* Khởi tạo AWS Budgets và Cost Explorer để quản lý, giám sát ngân sách và cảnh báo chi phí tự động.
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 6 | - **Đăng ký tài khoản:** AWS Free Tier và kích hoạt tài khoản <br> - **Tìm hiểu:** Các vùng (Region) và Availability Zone (AZ) | 17/04/2026 | 17/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **Mô hình trách nhiệm:** Tìm hiểu mô hình Shared Responsibility | 18/04/2026 | 18/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **Khám phá dịch vụ:** Compute, Storage, Networking, Database trên Console | 19/04/2026 | 19/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **Làm quen Console:** AWS Management Console: tìm kiếm dịch vụ, xem dashboard <br> - **Cấu hình CLI:** Cài đặt và cấu hình AWS CLI (Access Key, Secret Key, default Region) <br> - **Thực hành CLI:** Chạy các lệnh CLI cơ bản: `aws sts get-caller-identity`, `aws ec2 describe-regions` | 20/04/2026 | 20/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **Thực hành IAM:** Tạo IAM User, Group, Policy (JSON) và gán quyền theo nguyên tắc least privilege <br> - **Bảo mật tài khoản:** Bật MFA cho tài khoản root/admin <br> - **Khái niệm IAM:** Phân biệt IAM User, Role và Policy | 21/04/2026 | 21/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **Thực hành VPC:** Tạo VPC, Public/Private Subnet, CIDR block <br> - **Thực hành EC2:** Chọn AMI, Instance Type, tạo Key Pair, launch instance <br> - **Kết nối máy chủ:** Kết nối SSH vào EC2, kiểm tra trạng thái instance trên Console | 22/04/2026 | 22/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **Quản lý chi phí:** Tìm hiểu AWS Billing & Cost Management: Cost Explorer, Budgets, Free Tier usage <br> - **Hỗ trợ kỹ thuật:** Đọc tài liệu AWS Support Plans (Basic, Developer, Business) <br> - **Tổng kết tuần:** Tổng hợp ghi chú tuần 1 và rà soát tài nguyên đã tạo | 23/04/2026 | 23/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Đăng ký tài khoản AWS:** Đăng ký thành công AWS Free Tier và hoàn tất xác minh</li><li>- **Tìm hiểu khái niệm:** Khái niệm Region, Availability Zone (AZ) và AWS Global Infrastructure</li></ul> | 17/04/2026 | 17/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Khám phá Console:** Tìm hiểu giao diện AWS Management Console và các nhóm dịch vụ cơ bản</li><li>- **Cấu hình AWS CLI:** Cài đặt AWS CLI v2, cấu hình credentials (`aws configure`)</li></ul> | 18/04/2026 | 18/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Thực hành AWS CLI:** Chạy các lệnh CLI kiểm tra tài khoản: `aws sts get-caller-identity`, `aws s3 ls`</li></ul> | 19/04/2026 | 19/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Bảo mật IAM:** Bật MFA (Multi-Factor Authentication) cho tài khoản Root</li><li>- **Tạo IAM User & Group:** Khởi tạo các IAM User, gán vào IAM Group theo chức danh</li></ul> | 20/04/2026 | 20/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Viết IAM Policy:** Soạn thảo IAM Policy dạng JSON và gán quyền theo nguyên tắc Least Privilege</li><li>- **Phân biệt IAM Roles:** Tìm hiểu sự khác biệt giữa IAM User, Group, Role và Policy</li></ul> | 21/04/2026 | 21/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Cấu hình AWS Budgets:** Thiết lập ngân sách AWS Budgets cảnh báo khi chi phí vượt ngưỡng $5</li><li>- **Kích hoạt Cost Explorer:** Bật AWS Cost Explorer để theo dõi biểu đồ chi tiêu hàng ngày</li></ul> | 22/04/2026 | 22/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Tổng kết & Đánh giá:** Rà soát các tài nguyên đã tạo, kiểm tra nhật ký chi phí và tổng hợp báo cáo tuần 1</li></ul> | 23/04/2026 | 23/04/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 1:
 
-* Đã tạo và xác minh tài khoản AWS Free Tier; hiểu cấu trúc Region/AZ và mô hình trách nhiệm dùng chung.
-* Sử dụng thành thạo AWS Console và AWS CLI cho các thao tác tra cứu, cấu hình cơ bản.
-* Thiết lập IAM User, Group, Policy; áp dụng phân quyền theo least privilege và bật MFA.
-* Tạo VPC, Subnet; khởi tạo EC2 instance, kết nối SSH và quản lý Key Pair.
-* Nắm cách theo dõi chi phí qua Billing Dashboard và tìm tài liệu/hỗ trợ trên AWS.
+* Đã tạo thành công tài khoản AWS Free Tier và hiểu rõ hạ tầng đám mây toàn cầu (Regions & Availability Zones).
+* Nắm vững các khái niệm dịch vụ nền tảng của AWS và sử dụng thành thạo cả AWS Console lẫn AWS CLI.
+* Thiết lập hệ thống bảo mật IAM an toàn: bật MFA root, chia nhóm người dùng và viết policy chuẩn Least Privilege.
+* Thiết lập cảnh báo chi phí tự động qua AWS Budgets và theo dõi luồng dòng tiền thực tế bằng Cost Explorer.

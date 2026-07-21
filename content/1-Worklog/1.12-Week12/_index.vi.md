@@ -8,25 +8,26 @@ pre: " <b> 1.12. </b> "
 **Thời gian:** 03/07/2026 – 09/07/2026
 
 ### Mục tiêu tuần 12:
-* Hoàn thành tất cả deliverable cho báo cáo cuối kỳ.
-* Thực hiện demo live trước ban giám khảo.
-* Đánh giá và tổng kết toàn bộ quá trình thực tập.
-* Dọn dẹp tài nguyên AWS để tránh phát sinh chi phí không mong muốn.
+
+* Hoàn thiện tất cả các sản phẩm báo cáo cuối kỳ (Báo cáo thực tập chi tiết, Slide thuyết trình báo cáo, Video demo sản phẩm).
+* Đánh giá, tổng kết toàn bộ hành trình 12 tuần thực tập First Cloud Journey, rút ra bài học kinh nghiệm và định hướng phát triển bản thân.
+* Thực hiện quy trình dọn dẹp (cleanup) và hủy toàn bộ tài nguyên AWS đã khởi tạo trong suốt quá trình làm lab để tránh phát sinh chi phí sau thực tập.
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 6 | - **Tổng hợp tài liệu:** Tổng hợp toàn bộ nội dung worklog, proposal, tài liệu kỹ thuật, slide | 03/07/2026 | 03/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 7 | - **Định dạng báo cáo:** Định dạng báo cáo theo template FCJ | 04/07/2026 | 04/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| CN | - **Rà soát lỗi:** Kiểm tra lỗi chính tả, định dạng, liên kết ảnh/chỉ dẫn | 05/07/2026 | 05/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 2 | - **Môi trường demo:** Chuẩn bị môi trường demo: khởi động tài nguyên cần thiết, tạo sample data, test flow end-to-end 3 lần <br> - **Đảm bảo demo:** Đảm bảo không có lỗi critical khi chạy demo live <br> - **Checklist demo:** Đối chiếu checklist demo đã chuẩn bị trước đó | 06/07/2026 | 06/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 3 | - **Báo cáo cuối kỳ:** Thực hiện báo cáo cuối kỳ & demo live <br> - **Trình bày nội dung:** Trình bày các nội dung chính: problem, solution, tech stack, KPI, kết quả đạt được, khó khăn gặp phải và hướng phát triển <br> - **Demo thực tế:** Demo: upload hóa đơn → trích xuất → xem dashboard QuickSight | 07/07/2026 | 07/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 4 | - **Dọn dẹp AWS:** Dọn dẹp tài nguyên AWS: xóa S3 bucket, DynamoDB table, Lambda function, API Gateway, Cognito User Pool, CloudWatch Log Group, Bedrock endpoint (nếu có) <br> - **Kiểm tra chi phí:** Kiểm tra lại Billing Console đảm bảo không còn dịch vụ nào chạy sinh chi phí <br> - **Lưu trữ backup:** Lưu snapshot hoặc backup dữ liệu cần thiết trước khi xóa | 08/07/2026 | 08/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
-| 5 | - **Tổng kết thực tập:** Viết tóm tắt, đánh giá và kết luận cuối kỳ <br> - **Lộ trình học tập:** Nhận xét về lộ trình học tập, các kiến thức kỹ năng mới đạt được <br> - **Góp ý chương trình:** Góp ý (nếu có) cho chương trình FCJ | 09/07/2026 | 09/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 6 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Hoàn thiện tài liệu Báo cáo:** Tổng hợp file Báo cáo thực tập hoàn chỉnh theo định dạng mẫu của HUTECH & FCJ</li><li>- **Rà soát lỗi chính tả:** Kiểm tra toàn bộ bài viết trên Hugo site</li></ul> | 03/07/2026 | 03/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Soạn Slide Thuyết trình:** Thiết kế bộ Slide thuyết trình báo cáo cuối khóa (PowerPoint/Canva) gồm: Giới thiệu, Kiến trúc dự án AI Invoice Scanner, Demo & Kết quả</li></ul> | 04/07/2026 | 04/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Quay Video Demo:** Quay video demo thực tế toàn bộ luồng hoạt động của hệ thống AI Invoice Scanner từ bước upload S3 đến QuickSight Dashboard</li></ul> | 05/07/2026 | 05/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Diễn tập Thuyết trình:** Diễn tập thuyết trình thử (Dry-run presentation) kiểm tra thời gian báo cáo và chuẩn bị câu trả lời phản biện</li></ul> | 06/07/2026 | 06/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Dọn dẹp Tài nguyên AWS:** Xóa S3 Buckets, DynamoDB Tables, Lambda Functions, ECS Services, ECR Repositories, NAT Gateways và EIPs để tránh tốn chi phí</li></ul> | 07/07/2026 | 07/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Viết Báo cáo Tự đánh giá:** Viết nội dung tự đánh giá kết quả đạt được, tổng kết kỹ năng tích lũy (AWS, Serverless, DevOps, AI) và đóng góp ý kiến cho chương trình</li></ul> | 08/07/2026 | 08/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Nộp báo cáo & Đóng dự án:** Đăng tải báo cáo hoàn chỉnh lên GitHub Pages, gửi báo cáo cho Giảng viên hướng dẫn và hoàn tất đợt thực tập</li></ul> | 09/07/2026 | 09/07/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 12:
-* Đã hoàn thành và nộp đầy đủ báo cáo cuối kỳ, worklog, slide, tài liệu kỹ thuật.
-* Demo live thành công, không có lỗi phát sinh, trình bày rõ ràng.
-* Đã dọn dẹp toàn bộ tài nguyên AWS, không còn chi phí không mong muốn.
-* Tổng kết được toàn bộ quá trình học tập và thực tập tại FCJ, đạt được các mục tiêu đề ra ban đầu.
+
+* Hoàn thành 100% các sản phẩm báo cáo thực tập (Tài liệu báo cáo, Slide thuyết trình, Video demo hệ thống).
+* Tổng kết chi tiết hành trình 12 tuần thực tập, tích lũy kiến thức thực chiến vững chắc về hạ tầng Điện toán đám mây AWS.
+* Dọn dẹp sạch sẽ toàn bộ tài nguyên AWS trên Console, đảm bảo ngân sách tài khoản an toàn ($0 phát sinh dư thừa).
+* Đăng tải thành công website báo cáo thực tập trên GitHub Pages thông qua dự án Hugo.

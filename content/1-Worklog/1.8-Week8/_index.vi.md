@@ -9,26 +9,24 @@ pre: " <b> 1.8. </b> "
 
 ### Mục tiêu tuần 8:
 
-* Nghiên cứu Amazon Bedrock và mô hình RAG (Retrieval-Augmented Generation).
-* Phân tích tài liệu AWS/AI; đề xuất kiến trúc dự án cuối khóa AI Invoice Scanner.
-* Tích hợp Textract + S3; Lambda kết hợp Textract và Bedrock; lưu trữ DynamoDB.
-* Kiểm thử pipeline xử lý hóa đơn end-to-end.
+* Nghiên cứu nền tảng Generative AI trên AWS với Amazon Bedrock, kiến trúc RAG (Retrieval-Augmented Generation) và dịch vụ trích xuất văn bản tự động Amazon Textract.
+* Soạn thảo và hoàn thiện tài liệu Project Proposal chi tiết cho dự án thực tập cuối khóa: **AI Invoice Scanner** (Hệ thống thông minh quét & phân tích hóa đơn).
+* Nghiên cứu và dịch các bài blog kỹ thuật chuyên sâu về chủ đề phát triển bền vững trên đám mây (AWS Customer Carbon Footprint Tool, mô hình BYOL).
 
 ### Các công việc cần triển khai trong tuần này:
 
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 6 | - **Amazon Bedrock:** Amazon Bedrock: foundation model, inference, prompt engineering cơ bản | 05/06/2026 | 05/06/2026 | <https://cloudjourney.awsstudygroup.com/vi/7-ai-ml-service-on-aws/> |
-| 7 | - **Kiến thức RAG:** RAG: embedding, vector store, retrieve context trước khi generate | 06/06/2026 | 06/06/2026 | <https://cloudjourney.awsstudygroup.com/vi/7-ai-ml-service-on-aws/> |
-| CN | - **Tài liệu kỹ thuật:** Đọc và tóm tắt tài liệu kỹ thuật AWS Generative AI | 07/06/2026 | 07/06/2026 | <https://cloudjourney.awsstudygroup.com/vi/7-ai-ml-service-on-aws/> |
-| 2 | - **Phân tích yêu cầu:** Phân tích yêu cầu dự án cuối khóa: upload hóa đơn → trích xuất → lưu trữ → tra cứu <br> - **Thiết kế kiến trúc:** Vẽ sơ đồ kiến trúc high-level: S3, Textract, Lambda, Bedrock, DynamoDB <br> - **Lập kế hoạch:** Liệt kê user story và tiêu chí chấp nhận (acceptance criteria) | 08/06/2026 | 08/06/2026 | <https://cloudjourney.awsstudygroup.com/vi/7-ai-ml-service-on-aws/> |
-| 3 | - **Xử lý Textract:** S3 put event trigger; gọi `DetectDocumentText` / `AnalyzeExpense` <br> - **Lưu trữ thô:** Lưu raw JSON kết quả Textract vào S3 prefix hoặc truyền sang Lambda xử lý <br> - **Kiểm thử dữ liệu:** Test với mẫu hóa đơn PDF/ảnh | 09/06/2026 | 09/06/2026 | <https://cloudjourney.awsstudygroup.com/vi/7-ai-ml-service-on-aws/> |
-| 4 | - **Xử lý Lambda:** Lambda: parse output Textract, chuẩn hóa field (vendor, date, amount, line items) <br> - **Tích hợp Bedrock:** Gọi Bedrock model để enrich/classify/summary (nếu cần) <br> - **Quản lý lỗi:** Xử lý lỗi, timeout, DLQ cho message fail | 10/06/2026 | 10/06/2026 | <https://cloudjourney.awsstudygroup.com/vi/7-ai-ml-service-on-aws/> |
-| 5 | - **Thiết kế DynamoDB:** DynamoDB: thiết kế bảng invoice (PK invoiceId, GSI theo user/date) <br> - **Phát triển API:** Lambda ghi metadata hóa đơn; API GET list/detail (Lambda + API Gateway) <br> - **Kiểm thử tích hợp:** Integration test toàn pipeline: upload → extract → store → query | 11/06/2026 | 11/06/2026 | <https://cloudjourney.awsstudygroup.com/vi/7-ai-ml-service-on-aws/> |
+| 6 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Nghiên cứu Amazon Bedrock:** Học lý thuyết Foundation Models (Claude 3, Titan) trên Amazon Bedrock</li><li>- **Tìm hiểu kiến trúc RAG:** Nghiên cứu mô hình RAG kết hợp Vector Database và Knowledge Bases</li></ul> | 05/06/2026 | 05/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 7 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Tìm hiểu Amazon Textract:** Tìm hiểu API `DetectDocumentText` và `AnalyzeDocument` (Form & Table extraction) của Textract</li><li>- **Test thử Textract Console:** Upload mẫu hóa đơn PDF/JPEG lên Textract Console thử nghiệm độ chính xác</li></ul> | 06/06/2026 | 06/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| CN | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Đề xuất dự án AI Invoice Scanner:** Xác định mục tiêu, bài toán nghiệp vụ và phạm vi dự án AI Invoice Scanner</li><li>- **Phân tích yêu cầu chức năng:** Liệt kê danh sách các tính năng chính (upload, OCR, AI parsing, lưu trữ, dashboard)</li></ul> | 07/06/2026 | 07/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 2 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Viết Project Proposal:** Viết tài liệu chi tiết Proposal: Tổng quan, Sơ đồ kiến trúc đề xuất (S3, Lambda, Textract, Bedrock, DynamoDB, QuickSight)</li><li>- **Lập kế hoạch tiến độ:** Xây dựng mốc thời gian thực hiện bài lab theo từng tuần</li></ul> | 08/06/2026 | 08/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 3 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Nghiên cứu AWS Carbon Footprint:** Đọc và dịch bài viết kỹ thuật về AWS Customer Carbon Footprint Tool, đo lường mức phát thải carbon của hạ tầng cloud</li></ul> | 09/06/2026 | 09/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 4 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Nghiên cứu BYOL & Sustainability:** Đọc và dịch bài blog về chính sách Bring Your Own License (BYOL) và tối ưu hiệu quả năng lượng phần cứng AWS Graviton</li></ul> | 10/06/2026 | 10/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
+| 5 | <ul style="list-style-type:none; margin:0; padding-left:0;"><li>- **Review & Hoàn thiện tài liệu:** Định dạng bài viết blog dịch thuật, rà soát lại bản Project Proposal và nộp báo cáo tuần 8</li></ul> | 11/06/2026 | 11/06/2026 | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu Bedrock, RAG và cách áp dụng cho bài toán xử lý tài liệu.
-* Hoàn thành phân tích và kiến trúc đề xuất cho dự án AI Invoice Scanner.
-* Tích hợp Textract với S3 trigger; trích xuất dữ liệu hóa đơn tự động.
-* Xây dựng Lambda pipeline kết hợp Textract, Bedrock và DynamoDB; test end-to-end thành công.
+* Hiểu rõ nguyên lý hoạt động của Generative AI với Amazon Bedrock, mô hình RAG và công nghệ trích xuất hóa đơn tự động của Amazon Textract.
+* Hoàn thành tài liệu Project Proposal chuẩn cho dự án cuối khóa AI Invoice Scanner với các yêu cầu kỹ thuật rõ ràng.
+* Hoàn thành dịch thuật và tổng hợp các bài viết chuyên sâu về phát triển đám mây bền vững (Carbon Footprint, BYOL, AWS Graviton).
